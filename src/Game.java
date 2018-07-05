@@ -1,6 +1,5 @@
 import javafx.application.Application;
 import javafx.scene.Scene;
-import javafx.scene.layout.Pane;
 import javafx.scene.paint.Paint;
 import javafx.stage.Stage;
 
@@ -21,9 +20,6 @@ public class Game extends Application {
         theScene = new Scene(root, 400, 800, Paint.valueOf("rgb(1,100,1)"));
         boardHeight = (int)theScene.getHeight();
         boardWidth = (int)theScene.getWidth();
-        Minos t = new Minos(0,1);
-        root.getChildren().add(t);
-
     }
 
     @Override
