@@ -1,18 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="aabc729e-2f7c-4d25-a503-76b86fa4f601" name="Default" comment="Update 11 Juli 2018 #1">
-      <change afterPath="$PROJECT_DIR$/src/LShape.java" afterDir="false" />
+    <list default="true" id="aabc729e-2f7c-4d25-a503-76b86fa4f601" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/src/JShape.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Tetris/Board.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Tetris/Board.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Tetris/Shape.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Tetris/Shape.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Tetris/Tetramino.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Board.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/LineShape.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/IShape.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Minos.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Minos.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Shape.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Shape.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ShapeType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ShapeType.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -70,7 +61,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="LShape.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="LShape.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/LShape.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="168">
@@ -79,6 +70,15 @@
                 <element signature="e#55#56#0" expanded="true" />
                 <element signature="e#75#76#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="JShape.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/JShape.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="308">
+              <caret line="13" column="40" lean-forward="true" selection-start-line="13" selection-start-column="40" selection-end-line="13" selection-end-column="40" />
             </state>
           </provider>
         </entry>
@@ -134,6 +134,7 @@
         <option value="$PROJECT_DIR$/src/Shape.java" />
         <option value="$PROJECT_DIR$/src/Board.java" />
         <option value="$PROJECT_DIR$/src/LShape.java" />
+        <option value="$PROJECT_DIR$/src/JShape.java" />
       </list>
     </option>
   </component>
@@ -189,6 +190,11 @@
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="C:/Program Files/nodejs/node" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="database.main" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -271,19 +277,27 @@
       <workItem from="1530755848358" duration="4547000" />
       <workItem from="1530794437289" duration="212000" />
       <workItem from="1531780260807" duration="1996000" />
-      <workItem from="1531782477342" duration="4868000" />
+      <workItem from="1531782477342" duration="5629000" />
     </task>
+    <task id="LOCAL-00001" summary="Update 11 Juli 2018 #1">
+      <created>1531788621138</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1531788621138</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="20991000" />
+    <option name="totallyTimeSpent" value="21752000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info active="true" anchor="bottom" id="Messages" order="7" visible="true" weight="0.32914287" />
+      <window_info anchor="bottom" id="Messages" order="7" visible="true" weight="0.32914287" />
       <window_info anchor="right" id="Palette&#9;" order="3" />
       <window_info id="Image Layers" order="2" />
       <window_info anchor="right" id="Capture Analysis" order="3" />
@@ -295,7 +309,7 @@
       <window_info anchor="bottom" id="Terminal" order="7" weight="0.32914287" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="2" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.09495708" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.09495708" />
       <window_info anchor="right" id="Database" order="3" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -637,6 +651,13 @@
             <element signature="e#55#56#0" expanded="true" />
             <element signature="e#75#76#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/JShape.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="308">
+          <caret line="13" column="40" lean-forward="true" selection-start-line="13" selection-start-column="40" selection-end-line="13" selection-end-column="40" />
         </state>
       </provider>
     </entry>
