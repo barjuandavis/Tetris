@@ -42,7 +42,7 @@ public abstract class Shape {
     public void moveRight() {move(1,0);}
     public void moveDown() {move(0,1);}
     public void rotateLeft(){
-            for (int i=0; i<4; i++) {
+        if (rotator != -1) for (int i=0; i<4; i++) {
                 if (i != rotator) {
                     minosArray[i].setRelativeX(minosArray[i].getRelativeY()+minosArray[rotator].getRelativeX());
                     minosArray[i].setRelativeY(-minosArray[i].getRelativeX()+minosArray[rotator].getRelativeY());
@@ -50,7 +50,7 @@ public abstract class Shape {
             }
         } //rotation movement
     public void rotateRight(){
-        for (int i=0; i<4; i++) {
+        if (rotator != -1) for (int i=0; i<4; i++) {
             if (i != rotator) {
                 minosArray[i].setRelativeX(-minosArray[i].getRelativeY()+minosArray[rotator].getRelativeX());
                 minosArray[i].setRelativeY(minosArray[i].getRelativeX()+minosArray[rotator].getRelativeY());
