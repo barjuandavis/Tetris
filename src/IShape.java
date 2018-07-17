@@ -1,6 +1,6 @@
 import javafx.scene.paint.Paint;
-public class LineShape extends Shape {
-    public LineShape() {super();}
+public class IShape extends Shape {
+    public IShape() {super();}
     @Override
     public void initShape() {
         getMinosArray()[0].move(0,0);

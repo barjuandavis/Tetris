@@ -10,18 +10,21 @@ public abstract class Shape {
     public Shape() {
         minosArray = new Minos[4];
         for (int i=0; i<4; i++) {
-            minosArray[i] = new Minos(0,0);
+            minosArray[i] = new Minos(2,0);
         }
         initShape();
     }
 
     public abstract void initShape();
-    /*shapes can be rotated, and every shapes' definition will be defined in their own classes.
+    /*
+
+    Shapes can be rotated, and every shapes' definition will be defined in their own classes.
     * There are THREE things that need to be defined:
     * a. Positions of every minos
     * b. The exact minos that is used for rotation point.
     * c. Color of every minos
-    * */
+
+    */
     //GETTERS
     public int getRotator() {return rotator;}
     public Minos[] getMinosArray() {return minosArray;}
@@ -29,7 +32,12 @@ public abstract class Shape {
     public void setRotator(int rotator) {this.rotator = rotator;}
     public void setColor(Paint color) {for (int i=0; i<4; i++) {minosArray[i].setFill(color);}}
     //VARIOUS METHODS
-    public void move(int x,int y) { for (int i=0; i<4; i++) {minosArray[i].move(x,y);}}
+    public void move(int x,int y) {
+        for (int i=0; i<4; i++) {
+        minosArray[i].move(x,y);
+        System.out.println(minosArray[i].getX()+" "+minosArray[i].getY());
+        }
+    }
     public void moveLeft() {move(-1,0);}
     public void moveRight() {move(1,0);}
     public void moveDown() {move(0,1);}

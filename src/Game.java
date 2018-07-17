@@ -6,20 +6,18 @@ import javafx.stage.Stage;
 public class Game extends Application {
     public static final int boardHeight_r = 20; //Game Height counted per unit/Tetramino
     public static final int boardWidth_r = 10; // Game Width counted per unit/Tetramino
-    public static int boardHeight;
-    public static int boardWidth;
+    public static int boardHeight = 800;
+    public static int boardWidth = 400;
     private Scene theScene;
 
     public static void main(String[] args) {
         launch(args);
     }
-
+        Board board;
     public void initGame() {
-        Pane root = new Pane(); //THIS is the board
         /// TODO : bikin kelas KHUSUS UNTUK BOARD
-        theScene = new Scene(root, 400, 800, Paint.valueOf("rgb(1,100,1)"));
-        boardHeight = (int)theScene.getHeight();
-        boardWidth = (int)theScene.getWidth();
+        board = new Board();
+        theScene = new Scene(board.getPane(), boardWidth, boardHeight, Paint.valueOf("rgb(255,255,255)"));
     }
 
     @Override
