@@ -11,6 +11,6 @@ public class SShape extends Shape{
         getMinosArray()[2].move(1,0);
         getMinosArray()[3].move(2,0);
         setRotator(1);
-        setColor(Paint.valueOf("Yellow"));
+        setColor(Paint.valueOf("#66ff33"));
     }
 }

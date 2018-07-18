@@ -11,6 +11,6 @@ public class ZShape extends Shape{
         getMinosArray()[2].move(1,1);
         getMinosArray()[3].move(2,1);
         setRotator(1);
-        setColor(Paint.valueOf("Yellow"));
+        setColor(Paint.valueOf("#ff1a1a"));
     }
 }

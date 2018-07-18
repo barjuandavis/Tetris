@@ -1,26 +1,53 @@
 import javafx.scene.layout.Pane;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Line;
+
 import java.util.Random;
 
 public class Board {
     private Pane root;
     private Shape activeShape, holdedShape, nextShape;
     private boolean retrieved;
+    private int dropspeed = 1;
+    private Line grids[][];
+
+
 
     public Board() {
         root = new Pane();
         retrieved = false;
+        grids = new Line[Game.boardWidth_r-1][Game.boardHeight_r-1];
+        double width = Game.boardWidth/ Game.boardWidth_r;
+        double height = Game.boardHeight/ Game.boardHeight_r;
+        //generating gridlines
+        for (int i=1; i<=Game.boardWidth_r-1;i++){
+            Line l = new Line(i*width,0,i*width,Game.boardHeight);l.setFill(Color.GRAY);root.getChildren().add(l);l.setOpacity(0.2);
+        }
+        for (int i=1; i<=Game.boardHeight_r-1;i++){
+            Line l = new Line(0,i*height,Game.boardWidth,i*height);l.setFill(Color.GRAY);root.getChildren().add(l);l.setOpacity(0.2);
+        }
     }
 
-        //PRIVATE UTILITY FUNCTIONS
-        private void randomizeShape () {
+    //PRIVATE UTILITY FUNCTIONS
+    private void randomizeShape () {
         /*
         a function to randomize a shape and put it to nextShape.
         */
-            Random r = new Random();
-            int x = r.nextInt(7) + 1;
-            nextShape = intToShape(x);
-        }
-        private Shape intToShape (int x){
+        Random r = new Random();
+        int x = r.nextInt(7) + 1;
+        nextShape = intToShape(x);
+
+    }
+    public void shapeToBoard(Shape a, int x, int y) {
+            /*
+            a utility function to put a shape to the board in any position.
+            returns false if another minos already occupied the designated position.
+            */
+        a.move(x,y);
+
+        root.getChildren().addAll(a.getMinosArray());
+    }
+    private Shape intToShape (int x){
             if (x == 1) return new IShape();
             else if (x == 2) return new JShape();
             else if (x == 3) return new LShape();
@@ -29,15 +56,15 @@ public class Board {
             else if (x == 6) return new TShape();
             else return new ZShape();
         }
-        private void shapeToBoard(Shape a, int x, int y) {
-            /*
-            a utility function to put a shape to the board in any position.
-            returns false if another minos already occupied the designated position.
-            */
-            a.move(x,y);
+    private void isActiveShapeCollided() {
+        //TODO : check collisions only LEFT, RIGHT, AND DOWN. KEEP IN MIND THAT NOT EVERY COLLISIONS CAN STOP THE SHAPE.
+        //check collision to walls
 
-            root.getChildren().addAll(a.getMinosArray());
-        }
+
+        //check collision to other minos
+
+    }
+
 
      // PUBLIC UTILITY FUNCTIONS (Mostly user inputs)
     public void activate() {
@@ -61,12 +88,12 @@ public class Board {
             retrieved = true;
         }
     }
-    public void left() {activeShape.move(-1,0);}
-    public void right() {activeShape.move(1,0);}
-    public void () {
+
+    public void left() {activeShape.moveLeft();}
+    public void right() {activeShape.moveRight();}
+    public void down() {activeShape.moveDown();}
 
 
-    }
 
 
 
