@@ -1,23 +1,35 @@
 import javafx.application.Application;
 import javafx.scene.Scene;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.paint.Paint;
 import javafx.stage.Stage;
 
 public class Game extends Application {
     public static final int boardHeight_r = 20; //Game Height counted per unit/Tetramino
     public static final int boardWidth_r = 10; // Game Width counted per unit/Tetramino
-    public static int boardHeight = 800;
-    public static int boardWidth = 400;
+    public static final int boardHeight = 800;
+    public static final int boardWidth = 400;
     private Scene theScene;
-
+    private Board board;
     public static void main(String[] args) {
         launch(args);
     }
-        Board board;
+    //user input configurated here
+
+
+
     public void initGame() {
-        /// TODO : bikin kelas KHUSUS UNTUK BOARD
         board = new Board();
         theScene = new Scene(board.getPane(), boardWidth, boardHeight, Paint.valueOf("rgb(255,255,255)"));
+        board.shapeToBoard(new IShape(),0,0);
+        //User input here
+        //TODO FEATURES:
+        theScene.addEventHandler(KeyEvent.KEY_PRESSED, (k) -> {
+            if (k.getCode() == KeyCode.LEFT) {board.left();}
+            if (k.getCode() == KeyCode.RIGHT) {board.right();}
+            if (k.getCode() == KeyCode.DOWN) {board.down();}
+        });
     }
 
     @Override
@@ -27,6 +39,8 @@ public class Game extends Application {
         primaryStage.show();
     }
     //Getters
+
+
 
    //Setters
 

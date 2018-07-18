@@ -11,6 +11,6 @@ public class TShape extends Shape{
         getMinosArray()[2].move(2,0);
         getMinosArray()[3].move(1,1);
         setRotator(1);
-        setColor(Paint.valueOf("Yellow"));
+        setColor(Paint.valueOf("#cc66cc"));
     }
 }
