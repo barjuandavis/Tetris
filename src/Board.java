@@ -13,6 +13,7 @@ public class Board {
 
 
 
+
     public Board() {
         root = new Pane();
         retrieved = false;
@@ -26,6 +27,7 @@ public class Board {
         for (int i=1; i<=Game.boardHeight_r-1;i++){
             Line l = new Line(0,i*height,Game.boardWidth,i*height);l.setFill(Color.GRAY);root.getChildren().add(l);l.setOpacity(0.2);
         }
+        startBoard();
     }
 
     //PRIVATE UTILITY FUNCTIONS
@@ -38,15 +40,15 @@ public class Board {
         nextShape = intToShape(x);
 
     }
-    public void shapeToBoard(Shape a, int x, int y) {
+    private void shapeToBoard(Shape a, int x, int y) {
             /*
             a utility function to put a shape to the board in any position.
             returns false if another minos already occupied the designated position.
             */
         a.move(x,y);
-
         root.getChildren().addAll(a.getMinosArray());
     }
+    private void shapeToBoard(Shape a) {shapeToBoard(a,0,0);}
     private Shape intToShape (int x){
             if (x == 1) return new IShape();
             else if (x == 2) return new JShape();
@@ -59,10 +61,15 @@ public class Board {
     private void isActiveShapeCollided() {
         //TODO : check collisions only LEFT, RIGHT, AND DOWN. KEEP IN MIND THAT NOT EVERY COLLISIONS CAN STOP THE SHAPE.
         //check collision to walls
-
-
         //check collision to other minos
+        for (Minos minos : activeShape.getMinosArray()) {
 
+        }
+
+    }
+    private void startBoard() {
+        randomizeShape();
+        activate();
     }
 
 
@@ -74,6 +81,7 @@ public class Board {
          */
         if (activeShape == null) {
             activeShape = nextShape;
+            shapeToBoard(activeShape);
         }
     }
     public void hold() {
@@ -92,6 +100,8 @@ public class Board {
     public void left() {activeShape.moveLeft();}
     public void right() {activeShape.moveRight();}
     public void down() {activeShape.moveDown();}
+    public void rotateLeft() {activeShape.rotateLeft();}
+    public void rotateRight() {activeShape.rotateRight();}
 
 
 

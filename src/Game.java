@@ -22,13 +22,14 @@ public class Game extends Application {
     public void initGame() {
         board = new Board();
         theScene = new Scene(board.getPane(), boardWidth, boardHeight, Paint.valueOf("rgb(255,255,255)"));
-        board.shapeToBoard(new IShape(),0,0);
         //User input here
         //TODO FEATURES:
         theScene.addEventHandler(KeyEvent.KEY_PRESSED, (k) -> {
             if (k.getCode() == KeyCode.LEFT) {board.left();}
             if (k.getCode() == KeyCode.RIGHT) {board.right();}
             if (k.getCode() == KeyCode.DOWN) {board.down();}
+            if (k.getCode() == KeyCode.CONTROL) {board.rotateLeft();}
+            if (k.getCode() == KeyCode.UP) {board.rotateRight();}
         });
     }
 
