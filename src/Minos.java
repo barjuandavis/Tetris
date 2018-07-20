@@ -1,4 +1,3 @@
-
 import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
 import javafx.scene.shape.Rectangle;
@@ -15,4 +14,7 @@ public class Minos extends Rectangle {
     public void setRelativeY(int y) {setY(y*getHeight());}
     public int getRelativeX() {return (int)(getX()/(getWidth()));}
     public int getRelativeY() {return (int)(getY()/(getHeight()));}
+    public static double getMinosHeight() {return Game.boardHeight/ Game.boardHeight_r;}
+    public static double getMinosWidth() {return Game.boardWidth/ Game.boardWidth_r;}
+
 }

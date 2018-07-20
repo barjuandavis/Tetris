@@ -41,7 +41,7 @@ public abstract class Shape {
     }
     public void move(int x,int y) {
         for (int i=0; i<4; i++) {minosArray[i].move(x,y);}
-        printRelPos();
+      //  printRelPos();
     }
     public void moveLeft() {move(-1,0);}
     public void moveRight() {move(1,0);}
@@ -67,8 +67,6 @@ public abstract class Shape {
                     m.setRelativeY(_y + rotator.getRelativeY());;
                 }
             }
-            System.out.print("RL : ");
-            printRelPos();
         } //rotation movement
     public void rotateRight() {
         if (rotator != null)
@@ -91,8 +89,8 @@ public abstract class Shape {
                     m.setRelativeY(_y + rotator.getRelativeY());
                 }
             }
-        System.out.print("RR : ");
-        printRelPos();
+       // System.out.print("RR : ");
+      //  printRelPos();
     } // rotation movement
 
 }

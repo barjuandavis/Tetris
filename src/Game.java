@@ -31,11 +31,18 @@ public class Game extends Application {
             if (k.getCode() == KeyCode.CONTROL) {board.rotateLeft();}
             if (k.getCode() == KeyCode.UP) {board.rotateRight();}
         });
+
+    }
+
+    public void mainThread() {
+
+
     }
 
     @Override
     public void start(Stage primaryStage) {
         initGame();
+        mainThread();
         primaryStage.setScene(theScene);
         primaryStage.show();
     }
