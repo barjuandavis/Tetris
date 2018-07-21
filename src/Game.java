@@ -30,13 +30,13 @@ public class Game extends Application {
             if (k.getCode() == KeyCode.DOWN) {board.down();}
             if (k.getCode() == KeyCode.CONTROL) {board.rotateLeft();}
             if (k.getCode() == KeyCode.UP) {board.rotateRight();}
+            if (k.getCode() == KeyCode.SPACE) {board.hardDrop();}
         });
 
     }
 
     public void mainThread() {
-
-
+        board.startBoard();
     }
 
     @Override
@@ -44,6 +44,7 @@ public class Game extends Application {
         initGame();
         mainThread();
         primaryStage.setScene(theScene);
+     //   primaryStage.setResizable(false);
         primaryStage.show();
     }
     //Getters

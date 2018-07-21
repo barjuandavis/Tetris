@@ -6,20 +6,25 @@ import java.util.Random;
 
 public class Board {
     private boolean retrieved;
-    private boolean state[][];
-    private int speed = 1;
-    private int lineClearObjective = 5;
+    private Minos state[][];
+    private double speed = 0;
+    private double acceleration = 0.1;
+    private int lineClear = 0;
+    private int level = 1;
     private Line grids[][];
     private Line walls[];
     private Pane root;
     private Shape activeShape, holdedShape, nextShape;
     private final int BOTTOM_WALL = 0, LEFT_WALL = 1, RIGHT_WALL = 2;
+    private final int lineClearObjective = 4;
+    private final double baseSpeed = 1;
 
     public Board() {
         root = new Pane();
         retrieved = false;
         grids = new Line[Game.boardWidth_r-1][Game.boardHeight_r-1];
         walls = new Line[3];
+        state = new Minos[Game.boardWidth_r+1][Game.boardHeight_r+1];
         double width = Game.boardWidth/ Game.boardWidth_r;
         double height = Game.boardHeight/ Game.boardHeight_r;
         //generating gridlines
@@ -36,9 +41,10 @@ public class Board {
         }
         //generating walls
         //WARNING: WALLS ARE NOT INTENDED TO BE DRAWN. They exist only for collision purposes.
-        walls[LEFT_WALL] = new Line(0,0,0,Game.boardHeight);
-        walls[RIGHT_WALL] = new Line(Game.boardWidth,0,Game.boardWidth,Game.boardHeight);
+        walls[LEFT_WALL] = new Line(-Minos.getMinosWidth(),0,-Minos.getMinosWidth(),Game.boardHeight);
+        walls[RIGHT_WALL] = new Line(Game.boardWidth+Minos.getMinosWidth(),0,Game.boardWidth+Minos.getMinosWidth(),Game.boardHeight);
         walls[BOTTOM_WALL] = new Line(0,Game.boardHeight,Game.boardWidth,Game.boardHeight);
+
     }
 
     //PRIVATE UTILITY FUNCTIONS
@@ -69,35 +75,65 @@ public class Board {
             else if (x == 6) return new TShape();
             else return new ZShape();
         }
-    public void isCollided() {
+    public void checkCollision() {
         //TODO : check collisions only LEFT, RIGHT, AND DOWN. KEEP IN MIND THAT NOT EVERY COLLISIONS CAN STOP THE SHAPE.
         //check collision to walls
         //check collision to other minos
         for (Minos minos : activeShape.getMinosArray()) {
-            if (minos.getBoundsInParent().intersects(walls[LEFT_WALL].getBoundsInParent())) {activeShape.moveRight();}
-            if (minos.getBoundsInParent().intersects(walls[RIGHT_WALL].getBoundsInParent())) {activeShape.moveLeft();}
+            if (minos.getBoundsInParent().intersects(walls[LEFT_WALL].getBoundsInParent())) {
+                activeShape.moveRight();
+            }
+            if (minos.getBoundsInParent().intersects(walls[RIGHT_WALL].getBoundsInParent())) {
+                activeShape.moveLeft();
+            }
             if (minos.getBoundsInParent().intersects(walls[BOTTOM_WALL].getBoundsInParent())) {speed = 0;}
         }
+        checkMinosCollisions();
+
     }
+    public void checkMinosCollisions() {
 
-
+        for (Minos[] rows : state) {
+            for (Minos which : rows) {
+                if (which == null) continue;
+                for (Minos minos : activeShape.getMinosArray()) {
+                    int x = minos.getRelativeX(), y = minos.getRelativeY();
+                    int xw = which.getRelativeX(), yw = which.getRelativeY();
+                    if ((double)Math.sqrt((y-yw)*(y-yw)+(x-xw)*(x-xw)) <= 1.0 && yw > y) {
+                        speed = 0;
+                    }
+                }
+            }
+        }
+    }
     public void startBoard() {
-        // TODO: PERINGATAN KERAS, JALANKAN METHOD INI DI GAME THREAD!!
         randomizeShape();
         activate();
         AnimationTimer animate = new AnimationTimer() {
+            int speed_f;
             @Override
             public void handle(long now) {
                 /**
-                 * 1 detik  = 60 frame
+                 * 1 detik  = 60 frame (1 frame = 16.67 ms)
                  * v_awal   = 1 kotak/detik
                  * a        = 0.1 kotak/naik level
                  * Naik level = clear 5 lines, 6 lines, 7 lines, etc.
                  * speed 0 = mati, Shape yang sedang aktif berubah jadi inactive.
                  */
 
-
-
+                if (speed > 0) {
+                    //here's the gravity :)
+                    speed_f = (int) (60/speed);
+                    if (now % speed_f == 0) {activeShape.moveDown();}
+                    checkCollision();
+                } else {
+                    //simpen di array dulu semua minosnya.
+                    for (Minos m : activeShape.getMinosArray()) {
+                        state[m.getRelativeX()][m.getRelativeY()] = m;
+                    }
+                    randomizeShape();
+                    activate();
+                }
             }
         };
         animate.start();
@@ -107,13 +143,12 @@ public class Board {
      // PUBLIC UTILITY FUNCTIONS (Mostly user inputs)
     public void activate() {
         /*
-        A function to retrieve a shape from nextShape when activeShape is null.
-        TODO: When a shape is COLLIDED AND STOPPED, GIVE A CERTAIN DELAY, NULLIFY activeShape, and reactivate it.
+        A function to retrieve a shape from nextShape
+        and to give initial speed to activeShape.
          */
-        if (activeShape == null) {
             activeShape = nextShape;
             shapeToBoard(activeShape);
-        }
+            updateSpeed();
     }
     public void hold() {
         if (!retrieved || holdedShape == null) {
@@ -133,12 +168,18 @@ public class Board {
     public void down() {activeShape.moveDown();}
     public void rotateLeft() {activeShape.rotateLeft();}
     public void rotateRight() {activeShape.rotateRight();}
+    public void hardDrop() {
+        speed = 60;
+       // speed = temp;
+    }
 
     //GETTERS
     public Pane getPane() {
         return root;
     }
-
+    public int getLineClearObjective() {return lineClearObjective+level;}
+    public int getLevel() {return level;}
+    public void updateSpeed() {speed = baseSpeed + level*acceleration;}
 }
 
 
