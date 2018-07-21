@@ -6,6 +6,9 @@ import java.util.Random;
 
 public class Board {
     private boolean retrieved;
+    private boolean holding;
+    private boolean hardDropping;
+    private boolean dead;
     private Minos state[][];
     private double speed = 0;
     private double acceleration = 0.1;
@@ -19,9 +22,13 @@ public class Board {
     private final int lineClearObjective = 4;
     private final double baseSpeed = 1;
 
+    //constructor
     public Board() {
         root = new Pane();
+        holding = false;
         retrieved = false;
+        hardDropping = false;
+        dead = false;
         grids = new Line[Game.boardWidth_r-1][Game.boardHeight_r-1];
         walls = new Line[3];
         state = new Minos[Game.boardWidth_r+1][Game.boardHeight_r+1];
@@ -30,12 +37,13 @@ public class Board {
         //generating gridlines
         for (int i=1; i<=Game.boardWidth_r-1;i++){
             Line l = new Line(i*width,0,i*width,Game.boardHeight);
-            l.setFill(Color.GRAY);root.getChildren().add(l);
+            l.setStroke(Color.valueOf("#BDAA2D"));
+            root.getChildren().add(l);
             l.setOpacity(0.2);
         }
         for (int i=1; i<=Game.boardHeight_r-1;i++){
             Line l = new Line(0,i*height,(double)Game.boardWidth,i*height);
-            l.setFill(Color.GRAY);
+            l.setStroke(Color.valueOf("#BDAA2D"));
             root.getChildren().add(l);
             l.setOpacity(0.2);
         }
@@ -44,11 +52,10 @@ public class Board {
         walls[LEFT_WALL] = new Line(-Minos.getMinosWidth(),0,-Minos.getMinosWidth(),Game.boardHeight);
         walls[RIGHT_WALL] = new Line(Game.boardWidth+Minos.getMinosWidth(),0,Game.boardWidth+Minos.getMinosWidth(),Game.boardHeight);
         walls[BOTTOM_WALL] = new Line(0,Game.boardHeight,Game.boardWidth,Game.boardHeight);
-
     }
 
     //PRIVATE UTILITY FUNCTIONS
-    public void randomizeShape () {
+    private void randomizeShape () {
         /*
         a function to randomize a shape and put it to nextShape.
         */
@@ -57,7 +64,7 @@ public class Board {
         nextShape = intToShape(x);
 
     }
-    public void shapeToBoard(Shape a, int x, int y) {
+    private void shapeToBoard(Shape a, int x, int y) {
             /*
             a utility function to put a shape to the board in any position.
             returns false if another minos already occupied the designated position.
@@ -65,8 +72,8 @@ public class Board {
         a.move(x,y);
         root.getChildren().addAll(a.getMinosArray());
     }
-    public void shapeToBoard(Shape a) {shapeToBoard(a,0,0);}
-    public Shape intToShape (int x){
+    private void shapeToBoard(Shape a) {shapeToBoard(a,0,0);}
+    private Shape intToShape (int x){
             if (x == 1) return new IShape();
             else if (x == 2) return new JShape();
             else if (x == 3) return new LShape();
@@ -75,23 +82,21 @@ public class Board {
             else if (x == 6) return new TShape();
             else return new ZShape();
         }
-    public void checkCollision() {
+    private void checkCollision() {
         //TODO : check collisions only LEFT, RIGHT, AND DOWN. KEEP IN MIND THAT NOT EVERY COLLISIONS CAN STOP THE SHAPE.
         //check collision to walls
         //check collision to other minos
         for (Minos minos : activeShape.getMinosArray()) {
-            if (minos.getBoundsInParent().intersects(walls[LEFT_WALL].getBoundsInParent())) {
-                activeShape.moveRight();
+            if (minos.getBoundsInParent().intersects(walls[LEFT_WALL].getBoundsInParent())) {activeShape.moveRight(); }
+            if (minos.getBoundsInParent().intersects(walls[RIGHT_WALL].getBoundsInParent())) {activeShape.moveLeft();}
+            if (minos.getBoundsInParent().intersects(walls[BOTTOM_WALL].getBoundsInParent())) {
+                speed = 0;
             }
-            if (minos.getBoundsInParent().intersects(walls[RIGHT_WALL].getBoundsInParent())) {
-                activeShape.moveLeft();
-            }
-            if (minos.getBoundsInParent().intersects(walls[BOTTOM_WALL].getBoundsInParent())) {speed = 0;}
         }
         checkMinosCollisions();
 
     }
-    public void checkMinosCollisions() {
+    private void checkMinosCollisions() {
 
         for (Minos[] rows : state) {
             for (Minos which : rows) {
@@ -104,6 +109,39 @@ public class Board {
                     }
                 }
             }
+        }
+    }
+    private void checkLines() {
+        int validLineStart = -1;
+        int validLineEnd = -1;
+        for (Minos[] row : state) {
+            boolean invalid = false;
+            for (Minos m: row) {
+                 if (m == null) {invalid = true; break;}
+            }
+        }
+    }
+
+     // PUBLIC UTILITY FUNCTIONS (Mostly user inputs)
+    public void activate() {
+        /*
+        A function to retrieve a shape from nextShape
+        and to give initial speed to activeShape.
+         */
+            activeShape = nextShape;
+            shapeToBoard(activeShape);
+            updateSpeed();
+    }
+    public void hold() {
+        if (!retrieved || holdedShape == null) {
+            holdedShape = activeShape;
+            retrieved = false;
+        }
+    }
+    public void retrieve() {
+        if (!retrieved) {
+            activeShape = holdedShape;
+            retrieved = true;
         }
     }
     public void startBoard() {
@@ -129,38 +167,21 @@ public class Board {
                 } else {
                     //simpen di array dulu semua minosnya.
                     for (Minos m : activeShape.getMinosArray()) {
-                        state[m.getRelativeX()][m.getRelativeY()] = m;
+                        if (m.getRelativeY() == 0) {
+                            //mati aja udah
+                            this.stop();
+                            dead = true;
+                            System.out.println("Game Over :(");
+                        } else state[m.getRelativeX()][m.getRelativeY()] = m;
                     }
-                    randomizeShape();
-                    activate();
+                      if (!dead) {
+                        randomizeShape();
+                        activate();
+                      }
                 }
             }
         };
         animate.start();
-    }
-
-
-     // PUBLIC UTILITY FUNCTIONS (Mostly user inputs)
-    public void activate() {
-        /*
-        A function to retrieve a shape from nextShape
-        and to give initial speed to activeShape.
-         */
-            activeShape = nextShape;
-            shapeToBoard(activeShape);
-            updateSpeed();
-    }
-    public void hold() {
-        if (!retrieved || holdedShape == null) {
-            holdedShape = activeShape;
-            retrieved = false;
-        }
-    }
-    public void retrieve() {
-        if (!retrieved) {
-            activeShape = holdedShape;
-            retrieved = true;
-        }
     }
 
     public void left() {activeShape.moveLeft();}
@@ -169,8 +190,8 @@ public class Board {
     public void rotateLeft() {activeShape.rotateLeft();}
     public void rotateRight() {activeShape.rotateRight();}
     public void hardDrop() {
+        hardDropping = true;
         speed = 60;
-       // speed = temp;
     }
 
     //GETTERS
@@ -179,7 +200,14 @@ public class Board {
     }
     public int getLineClearObjective() {return lineClearObjective+level;}
     public int getLevel() {return level;}
-    public void updateSpeed() {speed = baseSpeed + level*acceleration;}
+    public void updateSpeed() {
+        hardDropping = false;
+        speed = baseSpeed + level*acceleration;
+    }
+
+    public boolean isHardDropping() {return hardDropping;}
+
+
 }
 
 
