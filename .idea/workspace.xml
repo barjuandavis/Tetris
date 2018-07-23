@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="aabc729e-2f7c-4d25-a503-76b86fa4f601" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Tetris/Board.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Tetris/Board.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Tetris/Board.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Board.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game.java" afterDir="false" />
     </list>
@@ -20,12 +20,12 @@
       <file leaf-file-name="Game.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Game.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="32" column="65" lean-forward="true" selection-start-line="32" selection-start-column="65" selection-end-line="32" selection-end-column="65" />
+            <state relative-caret-position="-142">
+              <caret line="25" column="25" lean-forward="true" selection-start-line="25" selection-start-column="25" selection-end-line="25" selection-end-column="25" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#1322#1323#0" expanded="true" />
-                <element signature="e#1356#1357#0" expanded="true" />
+                <element signature="e#1882#1883#0" expanded="true" />
+                <element signature="e#1916#1917#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -34,7 +34,7 @@
       <file leaf-file-name="Shape.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Shape.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="28">
+            <state relative-caret-position="1176">
               <caret line="42" column="58" selection-start-line="42" selection-start-column="58" selection-end-line="42" selection-end-column="58" />
             </state>
           </provider>
@@ -43,22 +43,22 @@
       <file leaf-file-name="Board.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Board.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="130">
-              <caret line="47" column="5" lean-forward="true" selection-start-line="47" selection-start-column="5" selection-end-line="47" selection-end-column="5" />
+            <state relative-caret-position="356">
+              <caret line="122" column="23" lean-forward="true" selection-start-line="122" selection-start-column="23" selection-end-line="122" selection-end-column="23" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="method#Board#0;class#Board#0" />
-                <element signature="method#randomizeShape#0;class#Board#0" />
-                <element signature="method#shapeToBoard#0;class#Board#0" />
-                <element signature="method#intToShape#0;class#Board#0" />
-                <element signature="method#checkCollision#0;class#Board#0" />
-                <element signature="e#3117#3229#0" />
-                <element signature="method#checkMinosCollisions#0;class#Board#0" />
-                <element signature="class#6236:7280" />
-                <element signature="method#handle#0;class#6236:7280" />
-                <element signature="method#activate#0;class#Board#0" />
-                <element signature="method#hold#0;class#Board#0" />
-                <element signature="method#retrieve#0;class#Board#0" />
+                <element signature="e#754#2204#0" />
+                <element signature="e#2210#2470#0" />
+                <element signature="e#2475#2797#0" />
+                <element signature="e#2864#3240#0" />
+                <element signature="e#3961#4536#0" />
+                <element signature="e#4832#5145#0" />
+                <element signature="e#5150#5305#0" />
+                <element signature="e#5310#5445#0" />
+                <element signature="e#5451#6975#0" />
+                <element signature="method#handle#0;class#5561:6943" />
+                <element signature="e#7467#7468#0" expanded="true" />
+                <element signature="e#7494#7495#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -78,6 +78,7 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>minos</find>
+      <find>Color</find>
     </findStrings>
     <replaceStrings>
       <replace>which</replace>
@@ -128,6 +129,7 @@
     </navigator>
     <panes>
       <pane id="PackagesPane" />
+      <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -144,7 +146,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="AndroidView" />
       <pane id="Scope" />
     </panes>
   </component>
@@ -253,7 +254,8 @@
       <workItem from="1532089171793" duration="3480000" />
       <workItem from="1532097058091" duration="739000" />
       <workItem from="1532152122079" duration="8060000" />
-      <workItem from="1532162360967" duration="2731000" />
+      <workItem from="1532162360967" duration="5754000" />
+      <workItem from="1532215129394" duration="6370000" />
     </task>
     <task id="LOCAL-00001" summary="Update 11 Juli 2018 #1">
       <created>1531788621138</created>
@@ -297,11 +299,25 @@
       <option name="project" value="LOCAL" />
       <updated>1532097151640</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Update 21 Juli 2018">
+      <created>1532166171834</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1532166171834</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Update 21 Juli 2018 #2">
+      <created>1532169173364</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1532169173364</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="65860000" />
+    <option name="totallyTimeSpent" value="75253000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -318,7 +334,7 @@
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32914287" />
-      <window_info anchor="bottom" id="Messages" order="7" weight="0.33513513" />
+      <window_info active="true" anchor="bottom" id="Messages" order="7" visible="true" weight="0.33485714" />
       <window_info anchor="right" id="Palette&#9;" order="3" />
       <window_info id="Image Layers" order="2" />
       <window_info anchor="right" id="Capture Analysis" order="3" />
@@ -326,7 +342,7 @@
       <window_info anchor="right" id="Maven Projects" order="3" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.32914287" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.328" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.328" />
       <window_info anchor="bottom" id="Terminal" order="7" weight="0.32914287" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="2" />
@@ -358,19 +374,13 @@
     <MESSAGE value="Update 18 Juli 2018" />
     <MESSAGE value="Update 19 Juli 2018" />
     <MESSAGE value="Update 20 Juli 2018" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update 20 Juli 2018" />
+    <MESSAGE value="Update 21 Juli 2018" />
+    <MESSAGE value="Update 21 Juli 2018 #2" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update 21 Juli 2018 #2" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Board.java</url>
-          <line>153</line>
-          <properties />
-          <option name="timeStamp" value="11" />
-        </line-breakpoint>
-      </breakpoints>
-      <option name="time" value="17" />
+      <option name="time" value="18" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
@@ -429,18 +439,18 @@
           <caret line="65" column="16" lean-forward="true" selection-start-line="65" selection-start-column="16" selection-end-line="65" selection-end-column="16" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#Board#0;class#Board#0" />
-            <element signature="method#randomizeShape#0;class#Board#0" />
-            <element signature="method#shapeToBoard#0;class#Board#0" />
-            <element signature="method#intToShape#0;class#Board#0" />
-            <element signature="method#checkCollision#0;class#Board#0" />
-            <element signature="e#3117#3229#0" />
-            <element signature="method#checkMinosCollisions#0;class#Board#0" />
-            <element signature="class#6236:7280" />
-            <element signature="method#handle#0;class#6236:7280" />
-            <element signature="method#activate#0;class#Board#0" />
-            <element signature="method#hold#0;class#Board#0" />
-            <element signature="method#retrieve#0;class#Board#0" />
+            <element signature="e#754#2204#0" />
+            <element signature="e#2210#2470#0" />
+            <element signature="e#2475#2797#0" />
+            <element signature="e#2864#3240#0" />
+            <element signature="e#3961#4536#0" />
+            <element signature="e#4832#5145#0" />
+            <element signature="e#5150#5305#0" />
+            <element signature="e#5310#5445#0" />
+            <element signature="e#5451#6975#0" />
+            <element signature="method#handle#0;class#5561:6943" />
+            <element signature="e#7467#7468#0" expanded="true" />
+            <element signature="e#7494#7495#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -451,8 +461,8 @@
           <caret line="19" column="106" selection-start-line="19" selection-start-column="106" selection-end-line="19" selection-end-column="106" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1322#1323#0" expanded="true" />
-            <element signature="e#1356#1357#0" expanded="true" />
+            <element signature="e#1882#1883#0" expanded="true" />
+            <element signature="e#1916#1917#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -463,18 +473,18 @@
           <caret line="8" column="20" lean-forward="true" selection-start-line="8" selection-start-column="20" selection-end-line="8" selection-end-column="20" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#Board#0;class#Board#0" />
-            <element signature="method#randomizeShape#0;class#Board#0" />
-            <element signature="method#shapeToBoard#0;class#Board#0" />
-            <element signature="method#intToShape#0;class#Board#0" />
-            <element signature="method#checkCollision#0;class#Board#0" />
-            <element signature="e#3117#3229#0" />
-            <element signature="method#checkMinosCollisions#0;class#Board#0" />
-            <element signature="class#6236:7280" />
-            <element signature="method#handle#0;class#6236:7280" />
-            <element signature="method#activate#0;class#Board#0" />
-            <element signature="method#hold#0;class#Board#0" />
-            <element signature="method#retrieve#0;class#Board#0" />
+            <element signature="e#754#2204#0" />
+            <element signature="e#2210#2470#0" />
+            <element signature="e#2475#2797#0" />
+            <element signature="e#2864#3240#0" />
+            <element signature="e#3961#4536#0" />
+            <element signature="e#4832#5145#0" />
+            <element signature="e#5150#5305#0" />
+            <element signature="e#5310#5445#0" />
+            <element signature="e#5451#6975#0" />
+            <element signature="method#handle#0;class#5561:6943" />
+            <element signature="e#7467#7468#0" expanded="true" />
+            <element signature="e#7494#7495#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -493,18 +503,18 @@
           <caret line="19" column="53" selection-start-line="19" selection-start-column="53" selection-end-line="19" selection-end-column="53" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#Board#0;class#Board#0" />
-            <element signature="method#randomizeShape#0;class#Board#0" />
-            <element signature="method#shapeToBoard#0;class#Board#0" />
-            <element signature="method#intToShape#0;class#Board#0" />
-            <element signature="method#checkCollision#0;class#Board#0" />
-            <element signature="e#3117#3229#0" />
-            <element signature="method#checkMinosCollisions#0;class#Board#0" />
-            <element signature="class#6236:7280" />
-            <element signature="method#handle#0;class#6236:7280" />
-            <element signature="method#activate#0;class#Board#0" />
-            <element signature="method#hold#0;class#Board#0" />
-            <element signature="method#retrieve#0;class#Board#0" />
+            <element signature="e#754#2204#0" />
+            <element signature="e#2210#2470#0" />
+            <element signature="e#2475#2797#0" />
+            <element signature="e#2864#3240#0" />
+            <element signature="e#3961#4536#0" />
+            <element signature="e#4832#5145#0" />
+            <element signature="e#5150#5305#0" />
+            <element signature="e#5310#5445#0" />
+            <element signature="e#5451#6975#0" />
+            <element signature="method#handle#0;class#5561:6943" />
+            <element signature="e#7467#7468#0" expanded="true" />
+            <element signature="e#7494#7495#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -529,8 +539,8 @@
           <caret line="17" column="5" selection-start-line="17" selection-start-column="5" selection-end-line="17" selection-end-column="51" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1322#1323#0" expanded="true" />
-            <element signature="e#1356#1357#0" expanded="true" />
+            <element signature="e#1882#1883#0" expanded="true" />
+            <element signature="e#1916#1917#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -563,18 +573,18 @@
           <caret line="2" column="20" selection-start-line="2" selection-start-column="20" selection-end-line="2" selection-end-column="20" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#Board#0;class#Board#0" />
-            <element signature="method#randomizeShape#0;class#Board#0" />
-            <element signature="method#shapeToBoard#0;class#Board#0" />
-            <element signature="method#intToShape#0;class#Board#0" />
-            <element signature="method#checkCollision#0;class#Board#0" />
-            <element signature="e#3117#3229#0" />
-            <element signature="method#checkMinosCollisions#0;class#Board#0" />
-            <element signature="class#6236:7280" />
-            <element signature="method#handle#0;class#6236:7280" />
-            <element signature="method#activate#0;class#Board#0" />
-            <element signature="method#hold#0;class#Board#0" />
-            <element signature="method#retrieve#0;class#Board#0" />
+            <element signature="e#754#2204#0" />
+            <element signature="e#2210#2470#0" />
+            <element signature="e#2475#2797#0" />
+            <element signature="e#2864#3240#0" />
+            <element signature="e#3961#4536#0" />
+            <element signature="e#4832#5145#0" />
+            <element signature="e#5150#5305#0" />
+            <element signature="e#5310#5445#0" />
+            <element signature="e#5451#6975#0" />
+            <element signature="method#handle#0;class#5561:6943" />
+            <element signature="e#7467#7468#0" expanded="true" />
+            <element signature="e#7494#7495#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -585,8 +595,8 @@
           <caret line="17" column="5" selection-start-line="17" selection-start-column="5" selection-end-line="17" selection-end-column="51" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1322#1323#0" expanded="true" />
-            <element signature="e#1356#1357#0" expanded="true" />
+            <element signature="e#1882#1883#0" expanded="true" />
+            <element signature="e#1916#1917#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -626,8 +636,8 @@
           <caret line="28" selection-start-line="28" selection-end-line="28" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1322#1323#0" expanded="true" />
-            <element signature="e#1356#1357#0" expanded="true" />
+            <element signature="e#1882#1883#0" expanded="true" />
+            <element signature="e#1916#1917#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -659,8 +669,8 @@
           <caret line="22" column="46" lean-forward="true" selection-start-line="22" selection-start-column="46" selection-end-line="22" selection-end-column="46" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1322#1323#0" expanded="true" />
-            <element signature="e#1356#1357#0" expanded="true" />
+            <element signature="e#1882#1883#0" expanded="true" />
+            <element signature="e#1916#1917#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -685,8 +695,8 @@
           <caret line="21" column="46" selection-start-line="21" selection-start-column="46" selection-end-line="21" selection-end-column="46" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1322#1323#0" expanded="true" />
-            <element signature="e#1356#1357#0" expanded="true" />
+            <element signature="e#1882#1883#0" expanded="true" />
+            <element signature="e#1916#1917#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -774,41 +784,41 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Shape.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="28">
+        <state relative-caret-position="1176">
           <caret line="42" column="58" selection-start-line="42" selection-start-column="58" selection-end-line="42" selection-end-column="58" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Game.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="32" column="65" lean-forward="true" selection-start-line="32" selection-start-column="65" selection-end-line="32" selection-end-column="65" />
+        <state relative-caret-position="-142">
+          <caret line="25" column="25" lean-forward="true" selection-start-line="25" selection-start-column="25" selection-end-line="25" selection-end-column="25" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1322#1323#0" expanded="true" />
-            <element signature="e#1356#1357#0" expanded="true" />
+            <element signature="e#1882#1883#0" expanded="true" />
+            <element signature="e#1916#1917#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Board.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="130">
-          <caret line="47" column="5" lean-forward="true" selection-start-line="47" selection-start-column="5" selection-end-line="47" selection-end-column="5" />
+        <state relative-caret-position="356">
+          <caret line="122" column="23" lean-forward="true" selection-start-line="122" selection-start-column="23" selection-end-line="122" selection-end-column="23" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#Board#0;class#Board#0" />
-            <element signature="method#randomizeShape#0;class#Board#0" />
-            <element signature="method#shapeToBoard#0;class#Board#0" />
-            <element signature="method#intToShape#0;class#Board#0" />
-            <element signature="method#checkCollision#0;class#Board#0" />
-            <element signature="e#3117#3229#0" />
-            <element signature="method#checkMinosCollisions#0;class#Board#0" />
-            <element signature="class#6236:7280" />
-            <element signature="method#handle#0;class#6236:7280" />
-            <element signature="method#activate#0;class#Board#0" />
-            <element signature="method#hold#0;class#Board#0" />
-            <element signature="method#retrieve#0;class#Board#0" />
+            <element signature="e#754#2204#0" />
+            <element signature="e#2210#2470#0" />
+            <element signature="e#2475#2797#0" />
+            <element signature="e#2864#3240#0" />
+            <element signature="e#3961#4536#0" />
+            <element signature="e#4832#5145#0" />
+            <element signature="e#5150#5305#0" />
+            <element signature="e#5310#5445#0" />
+            <element signature="e#5451#6975#0" />
+            <element signature="method#handle#0;class#5561:6943" />
+            <element signature="e#7467#7468#0" expanded="true" />
+            <element signature="e#7494#7495#0" expanded="true" />
           </folding>
         </state>
       </provider>

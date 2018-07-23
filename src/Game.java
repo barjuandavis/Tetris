@@ -24,16 +24,19 @@ public class Game extends Application {
         board = new Board();
         theScene = new Scene(board.getPane(), boardWidth, boardHeight, Paint.valueOf("#0F0F0F"));
         //User input here
-        //TODO FEATURES:
         theScene.addEventHandler(KeyEvent.KEY_PRESSED, (k) -> {
-            if (!board.isHardDropping()) { //user inputs are DISABLED during hardDrop.
-                if (k.getCode() == KeyCode.LEFT) {board.left();}
-                if (k.getCode() == KeyCode.RIGHT) {board.right();}
-                if (k.getCode() == KeyCode.DOWN) {board.down();}
-                if (k.getCode() == KeyCode.CONTROL) {board.rotateLeft(); }
-                if (k.getCode() == KeyCode.UP) {board.rotateRight();}
+            if (!board.isDead()) {
+                if (!board.isHardDropping()) { //user inputs are DISABLED during hardDrop.
+                    if (k.getCode() == KeyCode.LEFT) {board.left();}
+                    if (k.getCode() == KeyCode.RIGHT) {board.right();}
+                    if (k.getCode() == KeyCode.DOWN) {board.down();}
+                    if (k.getCode() == KeyCode.CONTROL) {board.rotateLeft();}
+                    if (k.getCode() == KeyCode.UP) {board.rotateRight();}
+                }
+                if (k.getCode() == KeyCode.SPACE) {
+                    board.hardDrop();
+                }
             }
-            if (k.getCode() == KeyCode.SPACE) {board.hardDrop();}
         });
 
     }

@@ -8,6 +8,7 @@ public class Board {
     private boolean retrieved;
     private boolean holding;
     private boolean hardDropping;
+
     private boolean dead;
     private Minos state[][];
     private double speed = 0;
@@ -21,6 +22,7 @@ public class Board {
     private final int BOTTOM_WALL = 0, LEFT_WALL = 1, RIGHT_WALL = 2;
     private final int lineClearObjective = 4;
     private final double baseSpeed = 1;
+    long lastUpdate;
 
     //constructor
     public Board() {
@@ -111,15 +113,18 @@ public class Board {
             }
         }
     }
-    private void checkLines() {
-        int validLineStart = -1;
-        int validLineEnd = -1;
-        for (Minos[] row : state) {
+    private int checkLines() {
+        int validLines = 0;
+        for (int y=Game.boardHeight_r-1; y>=0; y--) {
             boolean invalid = false;
-            for (Minos m: row) {
-                 if (m == null) {invalid = true; break;}
+            for (int x=0; x<=Game.boardWidth_r-1; x++) {if (state[x][y] == null) {invalid = true; break;}}
+            if (!invalid) {
+                 for (Minos m: row) {root.getChildren().remove(m);m = null;}
+                 for ()
+                 validLines++;
             }
         }
+        return validLines;
     }
 
      // PUBLIC UTILITY FUNCTIONS (Mostly user inputs)
@@ -151,6 +156,7 @@ public class Board {
             int speed_f;
             @Override
             public void handle(long now) {
+
                 /**
                  * 1 detik  = 60 frame (1 frame = 16.67 ms)
                  * v_awal   = 1 kotak/detik
@@ -159,10 +165,11 @@ public class Board {
                  * speed 0 = mati, Shape yang sedang aktif berubah jadi inactive.
                  */
 
+                long now_s = now/(int)Math.pow(10,9);
                 if (speed > 0) {
                     //here's the gravity :)
                     speed_f = (int) (60/speed);
-                    if (now % speed_f == 0) {activeShape.moveDown();}
+                    if (now % (speed_f) == 0) {activeShape.moveDown();}
                     checkCollision();
                 } else {
                     //simpen di array dulu semua minosnya.
@@ -171,13 +178,12 @@ public class Board {
                             //mati aja udah
                             this.stop();
                             dead = true;
-                            System.out.println("Game Over :(");
                         } else state[m.getRelativeX()][m.getRelativeY()] = m;
                     }
                       if (!dead) {
                         randomizeShape();
                         activate();
-                      }
+                      } else System.out.println("Game Over :(");
                 }
             }
         };
@@ -202,10 +208,11 @@ public class Board {
     public int getLevel() {return level;}
     public void updateSpeed() {
         hardDropping = false;
-        speed = baseSpeed + level*acceleration;
+        speed = baseSpeed + (level-1)*acceleration;
     }
 
     public boolean isHardDropping() {return hardDropping;}
+    public boolean isDead() {return dead;}
 
 
 }
