@@ -15,6 +15,7 @@ public class Board {
     private double acceleration = 0.1;
     private int lineClear = 0;
     private int level = 1;
+    private int score = 0;
     private Line grids[][];
     private Line walls[];
     private Pane root;
@@ -126,6 +127,9 @@ public class Board {
         }
         return validLines;
     }
+    private void setLineClear() {lineClear++;}
+    private void setLevel() {level++;}
+    private void setScore(int add) {score+=add;}
 
      // PUBLIC UTILITY FUNCTIONS (Mostly user inputs)
     public void activate() {
@@ -206,15 +210,20 @@ public class Board {
     }
     public int getLineClearObjective() {return lineClearObjective+level;}
     public int getLevel() {return level;}
+    public int getScore() {return score;}
+    public int getLineClear() {return lineClear;}
     public void updateSpeed() {
         hardDropping = false;
         speed = baseSpeed + (level-1)*acceleration;
     }
 
     public boolean isHardDropping() {return hardDropping;}
+<<<<<<< HEAD
     public boolean isDead() {return dead;}
 
 
+=======
+>>>>>>> 94ff594b80c1538bf09c9a2188bf68009eead318
 }
 
 
