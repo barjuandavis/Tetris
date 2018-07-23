@@ -21,22 +21,11 @@ public class Game extends Application {
     public static void main(String[] args) {
         launch(args);
     }
-    //user input configurated here
-
-
 
     public void initGame() {
-        //board = new Board();
         gc = new GameController();
-        //gc.setBoard(board);
         theScene = new Scene(gc);
-        //theScene = new Scene(board.getPane(), boardWidth, boardHeight, Paint.valueOf("#0F0F0F"));
-        //User input here
-<<<<<<< HEAD
-=======
-        //TODO FEATURES:
         board = gc.getBoard();
->>>>>>> 94ff594b80c1538bf09c9a2188bf68009eead318
         theScene.addEventHandler(KeyEvent.KEY_PRESSED, (k) -> {
             if (!board.isDead()) {
                 if (!board.isHardDropping()) { //user inputs are DISABLED during hardDrop.
@@ -50,11 +39,8 @@ public class Game extends Application {
                     board.hardDrop();
                 }
             }
-<<<<<<< HEAD
-=======
             if (k.getCode() == KeyCode.SPACE) {board.hardDrop();}
             if (k.getCode() == KeyCode.ESCAPE) {System.exit(0);}
->>>>>>> 94ff594b80c1538bf09c9a2188bf68009eead318
         });
 
     }
@@ -66,7 +52,6 @@ public class Game extends Application {
 
     public void startMusic() {
         String musicFile = "src/Tetris.mp3";
-
         Media sound = new Media(new File(musicFile).toURI().toString());
         MediaPlayer mediaPlayer = new MediaPlayer(sound);
         mediaPlayer.setAutoPlay(true);
@@ -78,7 +63,7 @@ public class Game extends Application {
         initGame();
         mainThread();
         primaryStage.setScene(theScene);
-        primaryStage.setFullScreen(true);
+        primaryStage.setFullScreen(false);
         primaryStage.setFullScreenExitHint("");
      //   primaryStage.setResizable(false);
         primaryStage.show();
