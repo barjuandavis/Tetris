@@ -43,14 +43,14 @@ public class Board {
             l.setStroke(Color.valueOf("#BDAA2D"));
             l.setStroke(Color.BLACK);
             root.getChildren().add(l);
-            //l.setOpacity(0.2);
+            l.setOpacity(0.2);
         }
         for (int i=1; i<=Game.boardHeight_r-1;i++){
             Line l = new Line(0,i*height,(double)Game.boardWidth,i*height);
             l.setStroke(Color.valueOf("#BDAA2D"));
             l.setStroke(Color.BLACK);
             root.getChildren().add(l);
-            //l.setOpacity(0.2);
+            l.setOpacity(0.2);
         }
         //generating walls
         //WARNING: WALLS ARE NOT INTENDED TO BE DRAWN. They exist only for collision purposes.
@@ -101,6 +101,14 @@ public class Board {
         checkMinosCollisions();
 
     }
+    private void checkMinosCollisions(Minos a, Minos b) {
+        int x = a.getRelativeX(), y = a.getRelativeY();
+        int xw = b.getRelativeX(), yw = b.getRelativeY();
+        double d = Math.sqrt((y-yw)*(y-yw)+(x-xw)*(x-xw));
+        if (d == 0) {
+            a.move(0,-1);
+        }
+    }
     private void checkMinosCollisions() {
 
         for (Minos[] rows : state) {
@@ -136,13 +144,12 @@ public class Board {
         return a;
     }
     private void cleanLines(ArrayList<Integer> arr) {
-        for (Integer i : arr) {
+        for (int i = arr.get(arr.size()-1); i>=0; i--) {
             for (int j = 0; j<Game.boardWidth_r; j++) {
                 if (state[j][i] != null) {
                     root.getChildren().remove(state[j][i]);
                     state[j][i] = null;
                 }
-                //pindahin dari state[j][i-1] ke state[j][0] satu line ke bawah
             }
             for (int y = i-1; y>=0; y--) {
                 for (int x = 0; x<Game.boardWidth_r; x++) {
@@ -150,7 +157,6 @@ public class Board {
                         state[x][y].move(0,1);
                         state[x][y + 1] = state[x][y];
                         state[x][y] = null;
-
                     }
                 }
             }
