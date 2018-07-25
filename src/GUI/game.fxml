@@ -11,143 +11,40 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" type="StackPane" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
-   <children>
-      <ImageView pickOnBounds="true">
-         <image>
-            <Image url="@assets/bg.jpg" />
-         </image>
-      </ImageView>
-      <BorderPane fx:id="borderPane" prefHeight="200.0" prefWidth="200.0">
-         <left>
-            <VBox BorderPane.alignment="CENTER">
+<fx:root fx:id="borderPane" minHeight="700.0" type="BorderPane" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <center>
+      <VBox fx:id="centerBox" alignment="CENTER" minHeight="650.0" BorderPane.alignment="CENTER">
+         <children>
+            <Rectangle fx:id="topBox" arcHeight="5.0" arcWidth="5.0" height="50.0" stroke="#f5580a" strokeType="INSIDE" strokeWidth="5.0" width="300.0">
+               <fill>
+                  <LinearGradient endX="1.0" endY="0.2666666666666667" startX="1.0" startY="1.0">
+                     <stops>
+                        <Stop color="#e3be29" />
+                        <Stop color="#e3be29" offset="0.007662835249042145" />
+                        <Stop color="#bf6f4a" offset="1.0" />
+                     </stops>
+                  </LinearGradient>
+               </fill>
+            </Rectangle>
+         </children>
+      </VBox>
+   </center>
+   <left>
+      <VBox alignment="CENTER">
+         <children>
+            <ImageView fx:id="logo" fitHeight="120.0" fitWidth="300.0" pickOnBounds="true" preserveRatio="true">
+               <VBox.margin>
+                  <Insets bottom="10.0" left="75.0" right="100.0" />
+               </VBox.margin>
+            </ImageView>
+            <VBox prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: #F3C178; -fx-border-color: #FE5E41; -fx-border-width: 6;">
                <children>
-                  <ImageView fitHeight="350.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@assets/logo.png" />
-                     </image>
-                     <VBox.margin>
-                        <Insets bottom="30.0" left="75.0" right="100.0" top="75.0" />
-                     </VBox.margin>
-                  </ImageView>
-                  <VBox prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: #F3C178; -fx-border-color: #FE5E41; -fx-border-width: 6;">
-                     <children>
-                        <Text stroke="#061d2e" strokeType="OUTSIDE" strokeWidth="3.0" text="SCORE" textAlignment="CENTER">
-                           <font>
-                              <Font name="Haettenschweiler" size="45.0" />
-                           </font>
-                           <fill>
-                              <LinearGradient endX="1.0" endY="0.2666666666666667" startX="1.0" startY="1.0">
-                                 <stops>
-                                    <Stop color="#001f8f" />
-                                    <Stop color="#72bfff" offset="1.0" />
-                                 </stops>
-                              </LinearGradient>
-                           </fill>
-                           <VBox.margin>
-                              <Insets left="20.0" top="10.0" />
-                           </VBox.margin>
-                        </Text>
-                        <Text fx:id="score" stroke="#061d2e" strokeType="OUTSIDE" strokeWidth="3.0" text="000000000">
-                           <fill>
-                              <LinearGradient endX="1.0" endY="0.2666666666666667" startX="1.0" startY="1.0">
-                                 <stops>
-                                    <Stop color="#001f8f" />
-                                    <Stop color="#72bfff" offset="0.9885057471264367" />
-                                    <Stop color="#72bfff" offset="1.0" />
-                                 </stops>
-                              </LinearGradient>
-                           </fill>
-                           <font>
-                              <Font name="Haettenschweiler" size="45.0" />
-                           </font>
-                           <VBox.margin>
-                              <Insets left="125.0" />
-                           </VBox.margin>
-                        </Text>
-                        <Text stroke="#061d2e" strokeType="OUTSIDE" strokeWidth="3.0" text="LEVEL" textAlignment="CENTER">
-                           <fill>
-                              <LinearGradient endX="1.0" endY="0.2666666666666667" startX="1.0" startY="1.0">
-                                 <stops>
-                                    <Stop color="#001f8f" />
-                                    <Stop color="#001f8f" offset="0.007662835249042145" />
-                                    <Stop color="#72bfff" offset="1.0" />
-                                 </stops>
-                              </LinearGradient>
-                           </fill>
-                           <font>
-                              <Font name="Haettenschweiler" size="45.0" />
-                           </font>
-                           <VBox.margin>
-                              <Insets left="25.0" top="20.0" />
-                           </VBox.margin>
-                        </Text>
-                        <Text fx:id="level" stroke="#061d2e" strokeType="OUTSIDE" strokeWidth="3.0" text="1" textAlignment="CENTER">
-                           <fill>
-                              <LinearGradient endX="1.0" endY="0.2666666666666667" startX="1.0" startY="1.0">
-                                 <stops>
-                                    <Stop color="#001f8f" />
-                                    <Stop color="#001f8f" offset="0.007662835249042145" />
-                                    <Stop color="#72bfff" offset="1.0" />
-                                 </stops>
-                              </LinearGradient>
-                           </fill>
-                           <font>
-                              <Font name="Haettenschweiler" size="45.0" />
-                           </font>
-                           <VBox.margin>
-                              <Insets left="125.0" />
-                           </VBox.margin>
-                        </Text>
-                        <Text stroke="#061d2e" strokeType="OUTSIDE" strokeWidth="3.0" text="LINES" textAlignment="CENTER">
-                           <fill>
-                              <LinearGradient endX="1.0" endY="0.2666666666666667" startX="1.0" startY="1.0">
-                                 <stops>
-                                    <Stop color="#001f8f" />
-                                    <Stop color="#72bfff" offset="1.0" />
-                                 </stops>
-                              </LinearGradient>
-                           </fill>
-                           <font>
-                              <Font name="Haettenschweiler" size="45.0" />
-                           </font>
-                           <VBox.margin>
-                              <Insets left="25.0" top="20.0" />
-                           </VBox.margin>
-                        </Text>
-                        <Text fx:id="line" stroke="#061d2e" strokeType="OUTSIDE" strokeWidth="3.0" text="0" textAlignment="CENTER">
-                           <fill>
-                              <LinearGradient endX="1.0" endY="0.2666666666666667" startX="1.0" startY="1.0">
-                                 <stops>
-                                    <Stop color="#001f8f" />
-                                    <Stop color="#72bfff" offset="1.0" />
-                                 </stops>
-                              </LinearGradient>
-                           </fill>
-                           <font>
-                              <Font name="Haettenschweiler" size="45.0" />
-                           </font>
-                           <VBox.margin>
-                              <Insets bottom="20.0" left="125.0" />
-                           </VBox.margin>
-                        </Text>
-                     </children>
-                     <VBox.margin>
-                        <Insets left="20.0" right="20.0" />
-                     </VBox.margin>
-                  </VBox>
-               </children>
-            </VBox>
-         </left>
-         <right>
-            <VBox alignment="CENTER" BorderPane.alignment="CENTER">
-               <children>
-                  <Text stroke="#0a2e06" strokeType="OUTSIDE" strokeWidth="3.0" text="CONTROLS" textAlignment="CENTER">
+                  <Text stroke="#061d2e" strokeType="OUTSIDE" strokeWidth="3.0" text="SCORE" textAlignment="CENTER">
                      <fill>
                         <LinearGradient endX="1.0" endY="0.2666666666666667" startX="1.0" startY="1.0">
                            <stops>
-                              <Stop color="#008f15" />
-                              <Stop color="#73ff87" offset="1.0" />
+                              <Stop color="#001f8f" />
+                              <Stop color="#72bfff" offset="1.0" />
                            </stops>
                         </LinearGradient>
                      </fill>
@@ -155,195 +52,301 @@
                         <Font name="Haettenschweiler" size="45.0" />
                      </font>
                      <VBox.margin>
-                        <Insets bottom="10.0" />
+                        <Insets left="20.0" top="10.0" />
                      </VBox.margin>
                   </Text>
-                  <HBox prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #FFEE88; -fx-border-color: #00CC99; -fx-border-width: 6;">
-                     <children>
-                        <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
-                           <children>
-                              <Text stroke="#2e2a06" strokeType="OUTSIDE" strokeWidth="3.0" text="⭠ ⭢" textAlignment="CENTER">
-                                 <fill>
-                                    <LinearGradient endX="1.0" endY="0.2666666666666667" startX="1.0" startY="1.0">
-                                       <stops>
-                                          <Stop color="#ddb902" />
-                                          <Stop color="#e6ee6f" offset="1.0" />
-                                       </stops>
-                                    </LinearGradient>
-                                 </fill>
-                                 <font>
-                                    <Font name="Haettenschweiler" size="45.0" />
-                                 </font>
-                                 <VBox.margin>
-                                    <Insets bottom="10.0" left="10.0" top="10.0" />
-                                 </VBox.margin>
-                              </Text>
-                              <Text layoutX="10.0" layoutY="50.0" stroke="#2e2a06" strokeType="OUTSIDE" strokeWidth="3.0" text="⭡" textAlignment="CENTER">
-                                 <fill>
-                                    <LinearGradient endX="1.0" endY="0.2666666666666667" startX="1.0" startY="1.0">
-                                       <stops>
-                                          <Stop color="#ddb902" />
-                                          <Stop color="#e6ee6f" offset="1.0" />
-                                       </stops>
-                                    </LinearGradient>
-                                 </fill>
-                                 <font>
-                                    <Font name="Haettenschweiler" size="45.0" />
-                                 </font>
-                                 <VBox.margin>
-                                    <Insets bottom="10.0" left="10.0" top="10.0" />
-                                 </VBox.margin>
-                              </Text>
-                              <Text layoutX="10.0" layoutY="95.0" stroke="#2e2a06" strokeType="OUTSIDE" strokeWidth="3.0" text="CTRL" textAlignment="CENTER">
-                                 <fill>
-                                    <LinearGradient endX="1.0" endY="0.2666666666666667" startX="1.0" startY="1.0">
-                                       <stops>
-                                          <Stop color="#ddb902" />
-                                          <Stop color="#e6ee6f" offset="1.0" />
-                                       </stops>
-                                    </LinearGradient>
-                                 </fill>
-                                 <font>
-                                    <Font name="Haettenschweiler" size="45.0" />
-                                 </font>
-                                 <VBox.margin>
-                                    <Insets bottom="10.0" left="10.0" top="10.0" />
-                                 </VBox.margin>
-                              </Text>
-                              <Text layoutX="10.0" layoutY="95.0" stroke="#2e2a06" strokeType="OUTSIDE" strokeWidth="3.0" text="⭣" textAlignment="CENTER">
-                                 <fill>
-                                    <LinearGradient endX="1.0" endY="0.2666666666666667" startX="1.0" startY="1.0">
-                                       <stops>
-                                          <Stop color="#ddb902" />
-                                          <Stop color="#e6ee6f" offset="1.0" />
-                                       </stops>
-                                    </LinearGradient>
-                                 </fill>
-                                 <font>
-                                    <Font name="Haettenschweiler" size="45.0" />
-                                 </font>
-                                 <VBox.margin>
-                                    <Insets bottom="10.0" left="10.0" top="10.0" />
-                                 </VBox.margin>
-                              </Text>
-                              <Text layoutX="10.0" layoutY="185.0" stroke="#2e2a06" strokeType="OUTSIDE" strokeWidth="3.0" text="SPACE" textAlignment="CENTER">
-                                 <fill>
-                                    <LinearGradient endX="1.0" endY="0.2666666666666667" startX="1.0" startY="1.0">
-                                       <stops>
-                                          <Stop color="#ddb902" />
-                                          <Stop color="#e6ee6f" offset="1.0" />
-                                       </stops>
-                                    </LinearGradient>
-                                 </fill>
-                                 <font>
-                                    <Font name="Haettenschweiler" size="45.0" />
-                                 </font>
-                                 <VBox.margin>
-                                    <Insets bottom="10.0" left="10.0" top="10.0" />
-                                 </VBox.margin>
-                              </Text>
-                           </children>
-                        </VBox>
-                        <VBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="100.0">
-                           <children>
-                              <Text stroke="#2e2a06" strokeType="OUTSIDE" strokeWidth="3.0" text="Move" textAlignment="CENTER">
-                                 <fill>
-                                    <LinearGradient endX="1.0" endY="0.2666666666666667" startX="1.0" startY="1.0">
-                                       <stops>
-                                          <Stop color="#ddb902" />
-                                          <Stop color="#e6ee6f" offset="1.0" />
-                                       </stops>
-                                    </LinearGradient>
-                                 </fill>
-                                 <font>
-                                    <Font name="Haettenschweiler" size="45.0" />
-                                 </font>
-                                 <VBox.margin>
-                                    <Insets bottom="10.0" top="10.0" />
-                                 </VBox.margin>
-                              </Text>
-                              <Text layoutX="10.0" layoutY="50.0" stroke="#2e2a06" strokeType="OUTSIDE" strokeWidth="3.0" text="Rotate ↻" textAlignment="CENTER">
-                                 <fill>
-                                    <LinearGradient endX="1.0" endY="0.2666666666666667" startX="1.0" startY="1.0">
-                                       <stops>
-                                          <Stop color="#ddb902" />
-                                          <Stop color="#e6ee6f" offset="1.0" />
-                                       </stops>
-                                    </LinearGradient>
-                                 </fill>
-                                 <font>
-                                    <Font name="Haettenschweiler" size="45.0" />
-                                 </font>
-                                 <VBox.margin>
-                                    <Insets bottom="10.0" top="10.0" />
-                                 </VBox.margin>
-                              </Text>
-                              <Text layoutX="10.0" layoutY="95.0" stroke="#2e2a06" strokeType="OUTSIDE" strokeWidth="3.0" text="Rotate ↺" textAlignment="CENTER">
-                                 <fill>
-                                    <LinearGradient endX="1.0" endY="0.2666666666666667" startX="1.0" startY="1.0">
-                                       <stops>
-                                          <Stop color="#ddb902" />
-                                          <Stop color="#e6ee6f" offset="1.0" />
-                                       </stops>
-                                    </LinearGradient>
-                                 </fill>
-                                 <font>
-                                    <Font name="Haettenschweiler" size="45.0" />
-                                 </font>
-                                 <VBox.margin>
-                                    <Insets bottom="10.0" top="10.0" />
-                                 </VBox.margin>
-                              </Text>
-                              <Text layoutX="10.0" layoutY="95.0" stroke="#2e2a06" strokeType="OUTSIDE" strokeWidth="3.0" text="Soft Drop" textAlignment="CENTER">
-                                 <fill>
-                                    <LinearGradient endX="1.0" endY="0.2666666666666667" startX="1.0" startY="1.0">
-                                       <stops>
-                                          <Stop color="#ddb902" />
-                                          <Stop color="#e6ee6f" offset="1.0" />
-                                       </stops>
-                                    </LinearGradient>
-                                 </fill>
-                                 <font>
-                                    <Font name="Haettenschweiler" size="45.0" />
-                                 </font>
-                                 <VBox.margin>
-                                    <Insets bottom="10.0" top="10.0" />
-                                 </VBox.margin>
-                              </Text>
-                              <Text layoutX="10.0" layoutY="185.0" stroke="#2e2a06" strokeType="OUTSIDE" strokeWidth="3.0" text="Hard Drop" textAlignment="CENTER">
-                                 <fill>
-                                    <LinearGradient endX="1.0" endY="0.2666666666666667" startX="1.0" startY="1.0">
-                                       <stops>
-                                          <Stop color="#ddb902" />
-                                          <Stop color="#e6ee6f" offset="1.0" />
-                                       </stops>
-                                    </LinearGradient>
-                                 </fill>
-                                 <font>
-                                    <Font name="Haettenschweiler" size="45.0" />
-                                 </font>
-                                 <VBox.margin>
-                                    <Insets bottom="10.0" top="10.0" />
-                                 </VBox.margin>
-                              </Text>
-                           </children>
-                           <HBox.margin>
-                              <Insets left="30.0" right="20.0" />
-                           </HBox.margin>
-                        </VBox>
-                     </children>
+                  <Text fx:id="score" stroke="#061d2e" strokeType="OUTSIDE" strokeWidth="3.0" text="000000000">
+                     <fill>
+                        <LinearGradient endX="1.0" endY="0.2666666666666667" startX="1.0" startY="1.0">
+                           <stops>
+                              <Stop color="#001f8f" />
+                              <Stop color="#72bfff" offset="0.9885057471264367" />
+                              <Stop color="#72bfff" offset="1.0" />
+                           </stops>
+                        </LinearGradient>
+                     </fill>
+                     <font>
+                        <Font name="Haettenschweiler" size="45.0" />
+                     </font>
                      <VBox.margin>
-                        <Insets left="10.0" right="10.0" />
+                        <Insets left="125.0" />
                      </VBox.margin>
-                  </HBox>
+                  </Text>
+                  <Text stroke="#061d2e" strokeType="OUTSIDE" strokeWidth="3.0" text="LEVEL" textAlignment="CENTER">
+                     <fill>
+                        <LinearGradient endX="1.0" endY="0.2666666666666667" startX="1.0" startY="1.0">
+                           <stops>
+                              <Stop color="#001f8f" />
+                              <Stop color="#001f8f" offset="0.007662835249042145" />
+                              <Stop color="#72bfff" offset="1.0" />
+                           </stops>
+                        </LinearGradient>
+                     </fill>
+                     <font>
+                        <Font name="Haettenschweiler" size="45.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets left="25.0" top="20.0" />
+                     </VBox.margin>
+                  </Text>
+                  <Text fx:id="level" stroke="#061d2e" strokeType="OUTSIDE" strokeWidth="3.0" text="1" textAlignment="CENTER">
+                     <fill>
+                        <LinearGradient endX="1.0" endY="0.2666666666666667" startX="1.0" startY="1.0">
+                           <stops>
+                              <Stop color="#001f8f" />
+                              <Stop color="#001f8f" offset="0.007662835249042145" />
+                              <Stop color="#72bfff" offset="1.0" />
+                           </stops>
+                        </LinearGradient>
+                     </fill>
+                     <font>
+                        <Font name="Haettenschweiler" size="45.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets left="125.0" />
+                     </VBox.margin>
+                  </Text>
+                  <Text stroke="#061d2e" strokeType="OUTSIDE" strokeWidth="3.0" text="LINES" textAlignment="CENTER">
+                     <fill>
+                        <LinearGradient endX="1.0" endY="0.2666666666666667" startX="1.0" startY="1.0">
+                           <stops>
+                              <Stop color="#001f8f" />
+                              <Stop color="#72bfff" offset="1.0" />
+                           </stops>
+                        </LinearGradient>
+                     </fill>
+                     <font>
+                        <Font name="Haettenschweiler" size="45.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets left="25.0" top="20.0" />
+                     </VBox.margin>
+                  </Text>
+                  <Text fx:id="line" stroke="#061d2e" strokeType="OUTSIDE" strokeWidth="3.0" text="0" textAlignment="CENTER">
+                     <fill>
+                        <LinearGradient endX="1.0" endY="0.2666666666666667" startX="1.0" startY="1.0">
+                           <stops>
+                              <Stop color="#001f8f" />
+                              <Stop color="#72bfff" offset="1.0" />
+                           </stops>
+                        </LinearGradient>
+                     </fill>
+                     <font>
+                        <Font name="Haettenschweiler" size="45.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets bottom="20.0" left="125.0" />
+                     </VBox.margin>
+                  </Text>
                </children>
-               <BorderPane.margin>
-                  <Insets left="10.0" />
-               </BorderPane.margin>
+               <VBox.margin>
+                  <Insets left="20.0" right="20.0" />
+               </VBox.margin>
             </VBox>
-         </right>
-         <center>
-            <VBox fx:id="centerBox" alignment="CENTER" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER" />
-         </center></BorderPane>
-   </children>
+         </children>
+      </VBox>
+   </left>
+   <right>
+      <VBox alignment="CENTER" BorderPane.alignment="CENTER">
+         <children>
+            <Text stroke="#0a2e06" strokeType="OUTSIDE" strokeWidth="3.0" text="CONTROLS" textAlignment="CENTER">
+               <fill>
+                  <LinearGradient endX="1.0" endY="0.2666666666666667" startX="1.0" startY="1.0">
+                     <stops>
+                        <Stop color="#008f15" />
+                        <Stop color="#73ff87" offset="1.0" />
+                     </stops>
+                  </LinearGradient>
+               </fill>
+               <font>
+                  <Font name="Haettenschweiler" size="45.0" />
+               </font>
+               <VBox.margin>
+                  <Insets bottom="10.0" />
+               </VBox.margin>
+            </Text>
+            <HBox prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #FFEE88; -fx-border-color: #00CC99; -fx-border-width: 6;">
+               <children>
+                  <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
+                     <children>
+                        <Text stroke="#2e2a06" strokeType="OUTSIDE" strokeWidth="3.0" text="⭠ ⭢" textAlignment="CENTER">
+                           <fill>
+                              <LinearGradient endX="1.0" endY="0.2666666666666667" startX="1.0" startY="1.0">
+                                 <stops>
+                                    <Stop color="#ddb902" />
+                                    <Stop color="#e6ee6f" offset="1.0" />
+                                 </stops>
+                              </LinearGradient>
+                           </fill>
+                           <font>
+                              <Font name="Haettenschweiler" size="45.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets bottom="10.0" left="10.0" top="10.0" />
+                           </VBox.margin>
+                        </Text>
+                        <Text layoutX="10.0" layoutY="50.0" stroke="#2e2a06" strokeType="OUTSIDE" strokeWidth="3.0" text="⭡" textAlignment="CENTER">
+                           <fill>
+                              <LinearGradient endX="1.0" endY="0.2666666666666667" startX="1.0" startY="1.0">
+                                 <stops>
+                                    <Stop color="#ddb902" />
+                                    <Stop color="#e6ee6f" offset="1.0" />
+                                 </stops>
+                              </LinearGradient>
+                           </fill>
+                           <font>
+                              <Font name="Haettenschweiler" size="45.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets bottom="10.0" left="10.0" top="10.0" />
+                           </VBox.margin>
+                        </Text>
+                        <Text layoutX="10.0" layoutY="95.0" stroke="#2e2a06" strokeType="OUTSIDE" strokeWidth="3.0" text="CTRL" textAlignment="CENTER">
+                           <fill>
+                              <LinearGradient endX="1.0" endY="0.2666666666666667" startX="1.0" startY="1.0">
+                                 <stops>
+                                    <Stop color="#ddb902" />
+                                    <Stop color="#e6ee6f" offset="1.0" />
+                                 </stops>
+                              </LinearGradient>
+                           </fill>
+                           <font>
+                              <Font name="Haettenschweiler" size="45.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets bottom="10.0" left="10.0" top="10.0" />
+                           </VBox.margin>
+                        </Text>
+                        <Text layoutX="10.0" layoutY="95.0" stroke="#2e2a06" strokeType="OUTSIDE" strokeWidth="3.0" text="⭣" textAlignment="CENTER">
+                           <fill>
+                              <LinearGradient endX="1.0" endY="0.2666666666666667" startX="1.0" startY="1.0">
+                                 <stops>
+                                    <Stop color="#ddb902" />
+                                    <Stop color="#e6ee6f" offset="1.0" />
+                                 </stops>
+                              </LinearGradient>
+                           </fill>
+                           <font>
+                              <Font name="Haettenschweiler" size="45.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets bottom="10.0" left="10.0" top="10.0" />
+                           </VBox.margin>
+                        </Text>
+                        <Text layoutX="10.0" layoutY="185.0" stroke="#2e2a06" strokeType="OUTSIDE" strokeWidth="3.0" text="SPACE" textAlignment="CENTER">
+                           <fill>
+                              <LinearGradient endX="1.0" endY="0.2666666666666667" startX="1.0" startY="1.0">
+                                 <stops>
+                                    <Stop color="#ddb902" />
+                                    <Stop color="#e6ee6f" offset="1.0" />
+                                 </stops>
+                              </LinearGradient>
+                           </fill>
+                           <font>
+                              <Font name="Haettenschweiler" size="45.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets bottom="10.0" left="10.0" top="10.0" />
+                           </VBox.margin>
+                        </Text>
+                     </children>
+                  </VBox>
+                  <VBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="100.0">
+                     <children>
+                        <Text stroke="#2e2a06" strokeType="OUTSIDE" strokeWidth="3.0" text="Move" textAlignment="CENTER">
+                           <fill>
+                              <LinearGradient endX="1.0" endY="0.2666666666666667" startX="1.0" startY="1.0">
+                                 <stops>
+                                    <Stop color="#ddb902" />
+                                    <Stop color="#e6ee6f" offset="1.0" />
+                                 </stops>
+                              </LinearGradient>
+                           </fill>
+                           <font>
+                              <Font name="Haettenschweiler" size="45.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets bottom="10.0" top="10.0" />
+                           </VBox.margin>
+                        </Text>
+                        <Text layoutX="10.0" layoutY="50.0" stroke="#2e2a06" strokeType="OUTSIDE" strokeWidth="3.0" text="Rotate ↻" textAlignment="CENTER">
+                           <fill>
+                              <LinearGradient endX="1.0" endY="0.2666666666666667" startX="1.0" startY="1.0">
+                                 <stops>
+                                    <Stop color="#ddb902" />
+                                    <Stop color="#e6ee6f" offset="1.0" />
+                                 </stops>
+                              </LinearGradient>
+                           </fill>
+                           <font>
+                              <Font name="Haettenschweiler" size="45.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets bottom="10.0" top="10.0" />
+                           </VBox.margin>
+                        </Text>
+                        <Text layoutX="10.0" layoutY="95.0" stroke="#2e2a06" strokeType="OUTSIDE" strokeWidth="3.0" text="Rotate ↺" textAlignment="CENTER">
+                           <fill>
+                              <LinearGradient endX="1.0" endY="0.2666666666666667" startX="1.0" startY="1.0">
+                                 <stops>
+                                    <Stop color="#ddb902" />
+                                    <Stop color="#e6ee6f" offset="1.0" />
+                                 </stops>
+                              </LinearGradient>
+                           </fill>
+                           <font>
+                              <Font name="Haettenschweiler" size="45.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets bottom="10.0" top="10.0" />
+                           </VBox.margin>
+                        </Text>
+                        <Text layoutX="10.0" layoutY="95.0" stroke="#2e2a06" strokeType="OUTSIDE" strokeWidth="3.0" text="Soft Drop" textAlignment="CENTER">
+                           <fill>
+                              <LinearGradient endX="1.0" endY="0.2666666666666667" startX="1.0" startY="1.0">
+                                 <stops>
+                                    <Stop color="#ddb902" />
+                                    <Stop color="#e6ee6f" offset="1.0" />
+                                 </stops>
+                              </LinearGradient>
+                           </fill>
+                           <font>
+                              <Font name="Haettenschweiler" size="45.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets bottom="10.0" top="10.0" />
+                           </VBox.margin>
+                        </Text>
+                        <Text layoutX="10.0" layoutY="185.0" stroke="#2e2a06" strokeType="OUTSIDE" strokeWidth="3.0" text="Hard Drop" textAlignment="CENTER">
+                           <fill>
+                              <LinearGradient endX="1.0" endY="0.2666666666666667" startX="1.0" startY="1.0">
+                                 <stops>
+                                    <Stop color="#ddb902" />
+                                    <Stop color="#e6ee6f" offset="1.0" />
+                                 </stops>
+                              </LinearGradient>
+                           </fill>
+                           <font>
+                              <Font name="Haettenschweiler" size="45.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets bottom="10.0" top="10.0" />
+                           </VBox.margin>
+                        </Text>
+                     </children>
+                     <HBox.margin>
+                        <Insets left="30.0" right="20.0" />
+                     </HBox.margin>
+                  </VBox>
+               </children>
+               <VBox.margin>
+                  <Insets left="10.0" right="10.0" />
+               </VBox.margin>
+            </HBox>
+         </children>
+         <BorderPane.margin>
+            <Insets left="10.0" />
+         </BorderPane.margin>
+      </VBox>
+   </right>
 </fx:root>
