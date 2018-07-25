@@ -13,7 +13,7 @@
 
 <fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" type="StackPane" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <ImageView pickOnBounds="true" preserveRatio="true">
+      <ImageView pickOnBounds="true">
          <image>
             <Image url="@assets/bg.jpg" />
          </image>
@@ -132,8 +132,8 @@
                </children>
             </VBox>
          </left>
-         <center>
-            <StackPane fx:id="stackPane" prefHeight="150.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
-         </center></BorderPane>
+         <right>
+            <VBox BorderPane.alignment="CENTER" />
+         </right></BorderPane>
    </children>
 </fx:root>

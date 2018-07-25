@@ -62,7 +62,7 @@ public class Board {
             root.getChildren().add(l);
             l.setOpacity(0.5);
         }
-        root.setStyle("-fx-background-color: #000000;");
+        root.setStyle("-fx-background-color: #4E4B2A;");
         //generating walls
         //WARNING: WALLS ARE NOT INTENDED TO BE DRAWN. They exist only for collision purposes.
         walls[LEFT_WALL] = new Line(-Minos.getMinosWidth(),0,-Minos.getMinosWidth(),Game.boardHeight);
