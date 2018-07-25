@@ -87,7 +87,7 @@ public class Board {
                 } else {
                     //simpen di array dulu semua minosnya.
                     for (Minos m : activeShape.getMinosArray()) {
-                        if (m.getRelativeY() == 0) {
+                        if (m.getRelativeY() <= 0) {
                             this.stop();
                             setDead(true);
                         }
