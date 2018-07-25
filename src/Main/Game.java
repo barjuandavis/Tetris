@@ -78,12 +78,12 @@ public class Game extends Application {
 
         Rectangle2D screenBound = Screen.getPrimary().getVisualBounds();
 
-        primaryStage.setX((screenBound.getMinX()+screenBound.getMaxX())/2-(screenBound.getWidth()-200)/2);
-        primaryStage.setY((screenBound.getMinY()+screenBound.getMaxY())/2-(screenBound.getHeight()-50)/2);
-        primaryStage.setWidth(screenBound.getWidth()-200);
-        primaryStage.setHeight(screenBound.getHeight()-50);
+        primaryStage.setX((screenBound.getMinX()+screenBound.getMaxX())/2-(screenBound.getWidth()-700)/2);
+        primaryStage.setY((screenBound.getMinY()+screenBound.getMaxY())/2-(screenBound.getHeight()-300)/2);
+        primaryStage.setWidth(screenBound.getWidth()-700);
+        primaryStage.setHeight(screenBound.getHeight()-300);
         primaryStage.setMinHeight(600);
-        primaryStage.setMinWidth(1000);
+        primaryStage.setMinWidth(900);
 
         primaryStage.show();
     }

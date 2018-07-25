@@ -60,7 +60,7 @@ public class GameController extends StackPane implements Initializable {
         line.setText(""+board.getLineClear());
         //borderPane.setCenter(board.getPane());
         centerBox.getChildren().add(board.getPane());
-        centerBox.setMaxWidth(board.getPane().getWidth());
+        centerBox.setMaxWidth(300);
 
         score.textProperty().bind(board.scoreProperty().asString());
         level.textProperty().bind(board.levelProperty().asString());

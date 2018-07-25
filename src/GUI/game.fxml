@@ -343,7 +343,7 @@
             </VBox>
          </right>
          <center>
-            <VBox fx:id="centerBox" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER" />
+            <VBox fx:id="centerBox" alignment="CENTER" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER" />
          </center></BorderPane>
    </children>
 </fx:root>
