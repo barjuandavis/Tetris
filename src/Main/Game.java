@@ -16,8 +16,8 @@ import java.io.File;
 public class Game extends Application {
     public static final int boardHeight_r = 20; //Main.Game Height counted per unit/Tetramino
     public static final int boardWidth_r = 10; // Main.Game Width counted per unit/Tetramino
-    public static final int boardHeight = 800;
-    public static final int boardWidth = 400;
+    public static final int boardHeight = 600;
+    public static final int boardWidth = 300;
     private Scene theScene;
     private Board board;
     private GameController gc;
@@ -28,7 +28,7 @@ public class Game extends Application {
     public void initGame() {
 
         gc = new GameController();
-        theScene = new Scene(gc, 1280, 800);
+        theScene = new Scene(gc, 800, 600);
         board = gc.getBoard();
         theScene.addEventHandler(KeyEvent.KEY_PRESSED, (k) -> {
             if (!board.isDead()) {

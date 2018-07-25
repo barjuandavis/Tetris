@@ -14,7 +14,7 @@
    <children>
       <ImageView fitHeight="900.0" fitWidth="1600.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@bg.jpg" />
+            <Image url="@assets/bg.jpg" />
          </image>
       </ImageView>
       <BorderPane fx:id="borderPane" prefHeight="200.0" prefWidth="200.0">
@@ -23,7 +23,7 @@
                <children>
                   <ImageView fitHeight="350.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@logo.png" />
+                        <Image url="@assets/logo.png" />
                      </image>
                      <VBox.margin>
                         <Insets bottom="30.0" left="75.0" right="100.0" top="75.0" />
