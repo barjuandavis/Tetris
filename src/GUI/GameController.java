@@ -1,8 +1,6 @@
 package GUI;
 
 import Main.Board;
-import javafx.beans.InvalidationListener;
-import javafx.beans.Observable;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.EventHandler;
@@ -18,7 +16,6 @@ import javafx.scene.layout.*;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
 
-import javax.swing.*;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
@@ -100,9 +97,11 @@ public class GameController extends BorderPane implements Initializable {
     }
 
     private void callAlert () {
+        File overFile = new File("src/GUI/assets/game_over.png");
+        Image overImg = new Image(overFile.toURI().toString());
         over.setTitle("Game Over");
         over.setHeaderText("");
-        over.setGraphic(new ImageView(this.getClass().getResource("assets/game_over.png").toString()));
+        over.setGraphic(new ImageView(overImg));
         over.setContentText("Your final result:\nScore :\t"+board.getScore()+"\nLevel :\t"+board.getLevel()+"\nLine :\t"+board.getLineClear());
         DialogPane dialog = over.getDialogPane();
         dialog.setStyle("-fx-text-alignment: center-right; -fx-font-size: 26px; -fx-font-weight: bold; -fx-background-color: #FFFFFF; -fx-font-family: Garamond");
