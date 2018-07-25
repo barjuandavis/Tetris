@@ -49,7 +49,10 @@ public class GameController extends StackPane implements Initializable {
         score.setText(""+board.getScore());
         level.setText(""+board.getLevel());
         line.setText(""+board.getLineClear());
-        borderPane.setCenter(board.getPane());
+        //borderPane.setCenter(board.getPane());
+
+        stackPane.setStyle("-fx-background-color: #FFFFFF;");
+        stackPane.getChildren().add(board.getPane());
 
         score.textProperty().bind(board.scoreProperty().asString());
         level.textProperty().bind(board.levelProperty().asString());
