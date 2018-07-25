@@ -65,7 +65,6 @@ public class Game extends Application {
         primaryStage.setScene(theScene);
         primaryStage.setFullScreen(false);
         primaryStage.setFullScreenExitHint("");
-     //   primaryStage.setResizable(false);
         primaryStage.show();
     }
     //Getters

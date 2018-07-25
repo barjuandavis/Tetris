@@ -110,7 +110,6 @@ public class Board {
         }
     }
     private void checkMinosCollisions() {
-
         for (Minos[] rows : state) {
             for (Minos which : rows) {
                 if (which == null) continue;
@@ -143,24 +142,35 @@ public class Board {
         }
         return a;
     }
-    private void cleanLines(ArrayList<Integer> arr) {
-        for (int i = arr.get(arr.size()-1); i>=0; i--) {
+    private void cleanLines(ArrayList<Integer> arrx) {
+        Integer[] arr = arrx.toArray(new Integer[arrx.size()]);
+        for (Integer i : arr) {
+            System.out.println("Clearing line " + i);
             for (int j = 0; j<Game.boardWidth_r; j++) {
                 if (state[j][i] != null) {
                     root.getChildren().remove(state[j][i]);
                     state[j][i] = null;
                 }
             }
-            for (int y = i-1; y>=0; y--) {
+            increaseLineClear();
+        }
+        for (int i = 0; i<arr.length; i++) {
+            int y_target = arr[i];
+            System.out.println("Shifting line to line " + y_target);
+            for (int y = y_target-1; y>=0; y--) {
+                //shift down ALL ELEMENTS from i-1 to 0;
                 for (int x = 0; x<Game.boardWidth_r; x++) {
-                    if (state[x][y] != null){
-                        state[x][y].move(0,1);
-                        state[x][y + 1] = state[x][y];
-                        state[x][y] = null;
-                    }
+                       if (state[x][y] != null) {
+                           state[x][y].move(0,1);
+                           state[x][y+1] = state[x][y];
+                           state[x][y] = null;
+                       }
+
                 }
             }
-            increaseLineClear();
+            for (int j = arr.length-1; j>i; j--) {
+                arr[j]++; //increment line clears before shifted down
+            }
         }
     }
     private void updateLastPos(int x, int y, int i) {lastPos[i][0] = x; lastPos[i][1] = y;}
@@ -185,6 +195,11 @@ public class Board {
         System.out.println();
 
     }
+    private void printPlayerStats() {
+        System.out.println("Score : " + score);
+        System.out.println("LineClear : " + lineClear);
+        System.out.println("Level : " + level);
+    }
 
      // PUBLIC UTILITY FUNCTIONS (Mostly user inputs)
     public void activate() {
@@ -192,16 +207,18 @@ public class Board {
         A function to retrieve a shape from nextShape
         and to give initial speed to activeShape.
          */
-            if (activeShape != null) updateLastPos();
-            else lastPos = new int[4][2];
+            if (activeShape != null) updateLastPos(); else lastPos = new int[4][2];
             activeShape = nextShape;
             shapeToBoard(activeShape);
             updateSpeed();
     }
     public void hold() {
-        if (!retrieved || holdedShape == null) {
+       if (!holding)
+        if (holdedShape == null) {
             holdedShape = activeShape;
-            retrieved = false;
+            holding = true;
+        } else {
+            retrieve();
         }
     }
     public void retrieve() {
@@ -241,9 +258,9 @@ public class Board {
                         } else state[m.getRelativeX()][m.getRelativeY()] = m;
                     }
                       if (!dead) {
-                        printState();
+                        printPlayerStats();
                         ArrayList<Integer> a = checkForValidLines();
-                        if (a.size() > 0) {cleanLines(a);for( int i : a ){System.out.print(i+" ");}System.out.println();}
+                        cleanLines(a);
                         activeShape = null;
                         randomizeShape();
                         activate();
