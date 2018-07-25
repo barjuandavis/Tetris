@@ -123,10 +123,12 @@ public class Board {
                     double d = Math.sqrt((y-yw)*(y-yw)+(x-xw)*(x-xw));
                     if (d == 1.0) {
                         if (yw > y) speed = 0;
-                    } else if (d == 0.0) {
-                        //return to prevPos
+                    } else if (d <= 0.0) {
+                        System.out.println("eh nabrak dari samping dong");
                         for (int j=0; j<arr.length; j++) {
-                            activeShape.getMinosArray()[j].move(lastPos[j][0],lastPos[j][1]);
+
+                            activeShape.getMinosArray()[j].set(lastPos[j][0],lastPos[j][1]);
+                            System.out.println("moving Minos #"+j+" to ("+lastPos[j][0]+","+lastPos[j][1]+")");
                         }
 
                     }
@@ -181,7 +183,9 @@ public class Board {
         Minos[] arr = activeShape.getMinosArray();
         for (int i = 0; i<arr.length; i++) {
             updateLastPos(arr[i].getRelativeX(),arr[i].getRelativeY(),i);
+            System.out.print("("+arr[i].getRelativeX()+","+arr[i].getRelativeY()+") ");
         }
+        System.out.println();
     }
     private void increaseLineClear() {lineClear++;}
     private void increaseLevel() {level++;}
@@ -210,7 +214,7 @@ public class Board {
         A function to retrieve a shape from nextShape
         and to give initial speed to activeShape.
          */
-            if (activeShape != null) updateLastPos(); else lastPos = new int[4][2];
+            lastPos = new int[4][2];
             activeShape = nextShape;
             shapeToBoard(activeShape);
             updateSpeed();
@@ -250,7 +254,7 @@ public class Board {
                 if (speed > 0) {
                     //here's the gravity :)
                     speed_f = (int) (60/speed);
-                    if (now % (speed_f) == 0) {activeShape.moveDown();}
+                    if (now % (speed_f) == 0) {down();}
                     checkCollision();
                 } else {
                     //simpen di array dulu semua minosnya.
@@ -258,7 +262,8 @@ public class Board {
                         if (m.getRelativeY() == 0) {
                             this.stop();
                             dead = true;
-                        } else state[m.getRelativeX()][m.getRelativeY()] = m;
+                        }
+                        else state[m.getRelativeX()][m.getRelativeY()] = m;
                     }
                       if (!dead) {
                         printPlayerStats();

@@ -26,12 +26,9 @@ public class Game extends Application {
     }
 
     public void initGame() {
-        Dimension screenSize = java.awt.Toolkit.getDefaultToolkit().getScreenSize();
-        double width = screenSize.getWidth();
-        double height = screenSize.getHeight();
 
         gc = new GameController();
-        theScene = new Scene(gc, width, height);
+        theScene = new Scene(gc, 1280, 800);
         board = gc.getBoard();
         theScene.addEventHandler(KeyEvent.KEY_PRESSED, (k) -> {
             if (!board.isDead()) {
@@ -76,7 +73,7 @@ public class Game extends Application {
         initGame();
         mainThread();
         primaryStage.setScene(theScene);
-        primaryStage.setFullScreen(true);
+        primaryStage.setResizable(false);
         primaryStage.setFullScreenExitHint("");
         primaryStage.show();
     }

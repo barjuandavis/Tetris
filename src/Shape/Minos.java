@@ -13,6 +13,7 @@ public class Minos extends Rectangle {
         move(x,y);
     }
     public void move(int x, int y) {setRelativeX(x+getRelativeX());setRelativeY(y+getRelativeY());}
+    public void set(int x, int y) {setRelativeX(x);setRelativeY(y);}
     public void setRelativeX(int x) {setX(x*getWidth());}
     public void setRelativeY(int y) {setY(y*getHeight());}
     public int getRelativeX() {return (int)(getX()/(getWidth()));}
