@@ -13,6 +13,6 @@ public class JShape extends Shape {
         getMinosArray()[2].move(2,0);
         getMinosArray()[3].move(2,1);
         setRotator(1);
-        setColor(Paint.valueOf("#0066ff"));
+        setColor(Paint.valueOf("Orange"));
     }
 }

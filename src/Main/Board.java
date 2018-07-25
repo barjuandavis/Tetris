@@ -46,14 +46,14 @@ public class Board {
             l.setStroke(Color.valueOf("#BDAA2D"));
             l.setStroke(Color.BLACK);
             root.getChildren().add(l);
-            l.setOpacity(0.2);
+            l.setOpacity(0.5);
         }
         for (int i=1; i<=Game.boardHeight_r-1;i++){
             Line l = new Line(0,i*height,(double)Game.boardWidth,i*height);
             l.setStroke(Color.valueOf("#BDAA2D"));
             l.setStroke(Color.BLACK);
             root.getChildren().add(l);
-            l.setOpacity(0.2);
+            l.setOpacity(0.5);
         }
         //generating walls
         //WARNING: WALLS ARE NOT INTENDED TO BE DRAWN. They exist only for collision purposes.

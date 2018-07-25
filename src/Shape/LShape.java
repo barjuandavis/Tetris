@@ -13,6 +13,6 @@ public class LShape extends Shape {
         getMinosArray()[2].move(2,0);
         getMinosArray()[3].move(0,1);
         setRotator(1);
-        setColor(Paint.valueOf("Orange"));
+        setColor(Paint.valueOf("Green"));
     }
 }
