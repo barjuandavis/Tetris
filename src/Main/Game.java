@@ -3,11 +3,13 @@ package Main;
 import GUI.GameController;
 import javafx.application.Application;
 import javafx.beans.property.ObjectProperty;
+import javafx.geometry.Rectangle2D;
 import javafx.scene.Scene;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
+import javafx.stage.Screen;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
@@ -27,9 +29,8 @@ public class Game extends Application {
     }
 
     public void initGame() {
-
         gc = new GameController();
-        theScene = new Scene(gc, 1000, 600);
+        theScene = new Scene(gc);
         board = gc.getBoard();
         theScene.addEventHandler(KeyEvent.KEY_PRESSED, (k) -> {
             if (!board.isDead()) {
@@ -74,6 +75,16 @@ public class Game extends Application {
         primaryStage.setScene(theScene);
         primaryStage.setResizable(false);
         primaryStage.setFullScreenExitHint("");
+
+        Rectangle2D screenBound = Screen.getPrimary().getVisualBounds();
+
+        primaryStage.setX((screenBound.getMinX()+screenBound.getMaxX())/2-(screenBound.getWidth()-200)/2);
+        primaryStage.setY((screenBound.getMinY()+screenBound.getMaxY())/2-(screenBound.getHeight()-50)/2);
+        primaryStage.setWidth(screenBound.getWidth()-200);
+        primaryStage.setHeight(screenBound.getHeight()-50);
+        primaryStage.setMinHeight(600);
+        primaryStage.setMinWidth(1000);
+
         primaryStage.show();
     }
     //Getters
