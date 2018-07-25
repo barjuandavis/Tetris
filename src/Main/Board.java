@@ -2,6 +2,8 @@ package Main;
 
 import Shape.*;
 import javafx.animation.AnimationTimer;
+import javafx.beans.property.SimpleBooleanProperty;
+import javafx.beans.property.SimpleIntegerProperty;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Line;
@@ -14,14 +16,17 @@ public class Board {
     private boolean holding;
     private boolean hardDropping;
 
-    private boolean dead;
+
+
+    private SimpleBooleanProperty dead;
     private Minos state[][];
     private double speed = 0;
     private double acceleration = 0.1;
-    private int lineClear = 0;
-    private int level = 1;
-    private int score = 0;
-    private Line grids[][];
+
+
+    private SimpleIntegerProperty lineClear;
+    private SimpleIntegerProperty level;
+    private SimpleIntegerProperty score;
     private Line walls[];
     private Pane root;
     private Shape activeShape, holdedShape, nextShape;
@@ -32,10 +37,11 @@ public class Board {
     public Board() {
         root = new Pane();
         holding = false;
-        retrieved = false;
         hardDropping = false;
-        dead = false;
-        grids = new Line[Game.boardWidth_r-1][Game.boardHeight_r-1];
+        dead = new SimpleBooleanProperty(false);
+        lineClear = new SimpleIntegerProperty(0);
+        level = new SimpleIntegerProperty(1);
+        score = new SimpleIntegerProperty(0);
         walls = new Line[3];
         state = new Minos[Game.boardWidth_r][Game.boardHeight_r];
         double width = Game.boardWidth/ Game.boardWidth_r;
@@ -60,6 +66,53 @@ public class Board {
         walls[LEFT_WALL] = new Line(-Minos.getMinosWidth(),0,-Minos.getMinosWidth(),Game.boardHeight);
         walls[RIGHT_WALL] = new Line(Game.boardWidth+ Minos.getMinosWidth(),0,Game.boardWidth+ Minos.getMinosWidth(),Game.boardHeight);
         walls[BOTTOM_WALL] = new Line(0,Game.boardHeight,Game.boardWidth,Game.boardHeight);
+    }
+
+    //ANIMATOR THREAD
+    public void startBoard() {
+        randomizeShape();
+        activate();
+        AnimationTimer animate = new AnimationTimer() {
+            int speed_f;
+            @Override
+            public void handle(long now) {
+
+                /**
+                 * 1 detik  = 60 frame (1 frame = 16.67 ms)
+                 * v_awal   = 1 kotak/detik
+                 * a        = 0.1 kotak/naik level
+                 * Naik level = clear 5 lines, 6 lines, 7 lines, etc.
+                 * speed 0 = mati, Shape.Shape yang sedang aktif berubah jadi inactive.
+                 */
+
+                long now_s = now/(int)Math.pow(10,9);
+                if (speed > 0) {
+                    //here's the gravity :)
+                    speed_f = (int) (60/speed);
+                    if (now % (speed_f) == 0) {down();}
+                    checkCollision();
+                } else {
+                    //simpen di array dulu semua minosnya.
+                    for (Minos m : activeShape.getMinosArray()) {
+                        if (m.getRelativeY() == 0) {
+                            this.stop();
+                            setDead(true);
+                        }
+                        else state[m.getRelativeX()][m.getRelativeY()] = m;
+                    }
+                    if (!isDead()) {
+                        ArrayList<Integer> a = checkForValidLines();
+                        cleanLines(a);
+                        activeShape = null;
+                        increaseLevel();
+                        randomizeShape();
+                        activate();
+                        printPlayerStats();
+                    }
+                }
+            }
+        };
+        animate.start();
     }
 
     //PRIVATE UTILITY FUNCTIONS
@@ -104,14 +157,6 @@ public class Board {
         checkMinosCollisions();
 
     }
-    private void checkMinosCollisions(Minos a, Minos b) {
-        int x = a.getRelativeX(), y = a.getRelativeY();
-        int xw = b.getRelativeX(), yw = b.getRelativeY();
-        double d = Math.sqrt((y-yw)*(y-yw)+(x-xw)*(x-xw));
-        if (d == 0) {
-            a.move(0,-1);
-        }
-    }
     private void checkMinosCollisions() {
         for (Minos[] rows : state) {
             for (Minos which : rows) {
@@ -124,11 +169,8 @@ public class Board {
                     if (d == 1.0) {
                         if (yw > y) speed = 0;
                     } else if (d <= 0.0) {
-                        System.out.println("eh nabrak dari samping dong");
                         for (int j=0; j<arr.length; j++) {
-
                             activeShape.getMinosArray()[j].set(lastPos[j][0],lastPos[j][1]);
-                            System.out.println("moving Minos #"+j+" to ("+lastPos[j][0]+","+lastPos[j][1]+")");
                         }
 
                     }
@@ -148,9 +190,8 @@ public class Board {
         return a;
     }
     private void cleanLines(ArrayList<Integer> arrx) {
-        Integer[] arr = arrx.toArray(new Integer[arrx.size()]);
+        Integer[] arr = arrx.toArray(new Integer[0]);
         for (Integer i : arr) {
-            System.out.println("Clearing line " + i);
             for (int j = 0; j<Game.boardWidth_r; j++) {
                 if (state[j][i] != null) {
                     root.getChildren().remove(state[j][i]);
@@ -159,9 +200,9 @@ public class Board {
             }
             increaseLineClear();
         }
+        addScore(arr.length);
         for (int i = 0; i<arr.length; i++) {
             int y_target = arr[i];
-            System.out.println("Shifting line to line " + y_target);
             for (int y = y_target-1; y>=0; y--) {
                 //shift down ALL ELEMENTS from i-1 to 0;
                 for (int x = 0; x<Game.boardWidth_r; x++) {
@@ -183,13 +224,28 @@ public class Board {
         Minos[] arr = activeShape.getMinosArray();
         for (int i = 0; i<arr.length; i++) {
             updateLastPos(arr[i].getRelativeX(),arr[i].getRelativeY(),i);
-            System.out.print("("+arr[i].getRelativeX()+","+arr[i].getRelativeY()+") ");
+          //  System.out.print("("+arr[i].getRelativeX()+","+arr[i].getRelativeY()+") ");
         }
-        System.out.println();
+        //System.out.println();
     }
-    private void increaseLineClear() {lineClear++;}
-    private void increaseLevel() {level++;}
-    private void setScore(int add) {score+=add;}
+    private void increaseLineClear() {lineClear.setValue(lineClear.getValue()+1);}
+    private void increaseLevel() {
+        if (getLineClear() >= getLineClearObjective()) {
+            setLevel(getLevel()+1);
+            setLineClear(0);
+        }
+    }
+    private void addScore(int combo) {
+        int add;
+        switch (combo) {
+            case 1 : add = 100; break;
+            case 2 : add = 300 ;break;
+            case 3 : add = 600; break;
+            case 4 : add = 1000; break;
+            default : add = 0; break;
+        }
+        score.setValue(getScore()+add);
+    }
     private void printState() {
         for (int i=0; i<Game.boardHeight_r; i++) {
             for (int j=0; j<Game.boardWidth_r; j++) {
@@ -203,10 +259,14 @@ public class Board {
 
     }
     private void printPlayerStats() {
-        System.out.println("Score : " + score);
-        System.out.println("LineClear : " + lineClear);
-        System.out.println("Level : " + level);
-    }
+        System.out.println("--------------------------------------");
+        System.out.println("CLEAR " + getLineClearObjective() + " LINES");
+        System.out.println("Score : " + getScore());
+        System.out.println("LineClear : " + getLineClear());
+        System.out.println("Level : " + getLevel());
+        System.out.println("--------------------------------------");
+        System.out.println();
+}
 
      // PUBLIC UTILITY FUNCTIONS (Mostly user inputs)
     public void activate() {
@@ -234,50 +294,7 @@ public class Board {
             retrieved = true;
         }
     }
-    public void startBoard() {
-        randomizeShape();
-        activate();
-        AnimationTimer animate = new AnimationTimer() {
-            int speed_f;
-            @Override
-            public void handle(long now) {
 
-                /**
-                 * 1 detik  = 60 frame (1 frame = 16.67 ms)
-                 * v_awal   = 1 kotak/detik
-                 * a        = 0.1 kotak/naik level
-                 * Naik level = clear 5 lines, 6 lines, 7 lines, etc.
-                 * speed 0 = mati, Shape.Shape yang sedang aktif berubah jadi inactive.
-                 */
-
-                long now_s = now/(int)Math.pow(10,9);
-                if (speed > 0) {
-                    //here's the gravity :)
-                    speed_f = (int) (60/speed);
-                    if (now % (speed_f) == 0) {down();}
-                    checkCollision();
-                } else {
-                    //simpen di array dulu semua minosnya.
-                    for (Minos m : activeShape.getMinosArray()) {
-                        if (m.getRelativeY() == 0) {
-                            this.stop();
-                            dead = true;
-                        }
-                        else state[m.getRelativeX()][m.getRelativeY()] = m;
-                    }
-                      if (!dead) {
-                        printPlayerStats();
-                        ArrayList<Integer> a = checkForValidLines();
-                        cleanLines(a);
-                        activeShape = null;
-                        randomizeShape();
-                        activate();
-                      } else System.out.println("Main.Game Over :(");
-                }
-            }
-        };
-        animate.start();
-    }
 
     public void left() { updateLastPos();activeShape.moveLeft();}
     public void right() {updateLastPos();activeShape.moveRight();}
@@ -296,19 +313,34 @@ public class Board {
     }
     public int getLineClearObjective() {
         int lineClearObjective = 4;
-        return lineClearObjective+level;
+        return lineClearObjective+level.getValue();
     }
-    public int getLevel() {return level;}
-    public int getScore() {return score;}
-    public int getLineClear() {return lineClear;}
+    public SimpleIntegerProperty levelProperty() {return level;}
+    public int getLevel() {return level.getValue();}
+    public SimpleIntegerProperty scoreProperty() {return score;}
+    public int getScore() {return score.getValue();}
+    public SimpleIntegerProperty lineClearProperty() {return lineClear;}
+    public int getLineClear() {return lineClear.getValue();}
     public void updateSpeed() {
         hardDropping = false;
         int baseSpeed = 1;
-        speed = baseSpeed + (level-1)*acceleration;
+        speed = baseSpeed + (getLevel()-1)*acceleration;
     }
 
     public boolean isHardDropping() {return hardDropping;}
-    public boolean isDead() {return dead;}
+    public boolean isDead() {return dead.get();}
+
+    public SimpleBooleanProperty deadProperty() {return dead;}
+
+
+
+
+    //SETTERS
+    public void setLineClear(int lineClear) {this.lineClear.set(lineClear);}
+    public void setLevel(int level) {this.level.set(level);}
+    public void setDead(boolean dead) {this.dead.set(dead);}
+
+
 
 
 
