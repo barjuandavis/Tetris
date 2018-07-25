@@ -3,6 +3,8 @@ package Main;
 import GUI.GameController;
 import javafx.application.Application;
 import javafx.beans.property.ObjectProperty;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.geometry.Rectangle2D;
 import javafx.scene.Scene;
 import javafx.scene.input.KeyCode;
@@ -24,6 +26,9 @@ public class Game extends Application {
     private Scene theScene;
     private Board board;
     private GameController gc;
+    String musicFile;
+    Media sound;
+    MediaPlayer mediaPlayer;
     public static void main(String[] args) {
         launch(args);
     }
@@ -57,15 +62,22 @@ public class Game extends Application {
     }
 
     public void startMusic() {
-        String musicFile = "src/GUI/assets/Tetris.mp3";
-        Media sound = new Media(new File(musicFile).toURI().toString());
-        MediaPlayer mediaPlayer = new MediaPlayer(sound);
+        musicFile = "src/GUI/assets/Tetris.mp3";
+        sound = new Media(new File(musicFile).toURI().toString());
+        mediaPlayer = new MediaPlayer(sound);
         mediaPlayer.setAutoPlay(true);
         mediaPlayer.play();
         mediaPlayer.setStartTime(Duration.ZERO);
         mediaPlayer.setStopTime(Duration.seconds(77));
         mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
+    }
 
+    public void stopMusic() {
+        mediaPlayer.stop();
+        musicFile = "src/GUI/assets/Game Over.mp3";
+        sound = new Media(new File(musicFile).toURI().toString());
+        mediaPlayer = new MediaPlayer(sound);
+        mediaPlayer.play();
     }
 
     @Override
@@ -86,6 +98,13 @@ public class Game extends Application {
         primaryStage.setMinWidth(1100);
 
         primaryStage.show();
+
+        board.deadProperty().addListener(new ChangeListener<Boolean>() {
+            @Override
+            public void changed(ObservableValue<? extends Boolean> observable, Boolean oldValue, Boolean newValue) {
+                if(board.isDead()) stopMusic();
+            }
+        });
     }
     //Getters
 
