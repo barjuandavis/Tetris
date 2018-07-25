@@ -46,21 +46,23 @@ public class Board {
         state = new Minos[Game.boardWidth_r][Game.boardHeight_r];
         double width = Game.boardWidth/ Game.boardWidth_r;
         double height = Game.boardHeight/ Game.boardHeight_r;
+
         //generating gridlines
         for (int i=1; i<=Game.boardWidth_r-1;i++){
             Line l = new Line(i*width,0,i*width,Game.boardHeight);
             l.setStroke(Color.valueOf("#BDAA2D"));
-            l.setStroke(Color.BLACK);
+            l.setStroke(Color.WHITESMOKE);
             root.getChildren().add(l);
             l.setOpacity(0.5);
         }
         for (int i=1; i<=Game.boardHeight_r-1;i++){
             Line l = new Line(0,i*height,(double)Game.boardWidth,i*height);
             l.setStroke(Color.valueOf("#BDAA2D"));
-            l.setStroke(Color.BLACK);
+            l.setStroke(Color.WHITESMOKE);
             root.getChildren().add(l);
             l.setOpacity(0.5);
         }
+        root.setStyle("-fx-background-color: #000000;");
         //generating walls
         //WARNING: WALLS ARE NOT INTENDED TO BE DRAWN. They exist only for collision purposes.
         walls[LEFT_WALL] = new Line(-Minos.getMinosWidth(),0,-Minos.getMinosWidth(),Game.boardHeight);
