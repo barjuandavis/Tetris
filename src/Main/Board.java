@@ -16,15 +16,9 @@ public class Board {
     private boolean holding;
     private boolean hardDropping;
 
-
-
     private SimpleBooleanProperty dead;
     private Minos state[][];
-    private double speed = 0;
-    private double acceleration = 0.1;
-
-
-
+    private double speed;
     private SimpleIntegerProperty lineClear;
     private SimpleIntegerProperty level;
     private SimpleIntegerProperty score;
@@ -34,6 +28,7 @@ public class Board {
     private final int BOTTOM_WALL = 0, LEFT_WALL = 1, RIGHT_WALL = 2;
     private int lastPos[][];
     private ArrayList<Shape> randomizer;
+
 
 
     //constructor
@@ -47,6 +42,7 @@ public class Board {
         score = new SimpleIntegerProperty(0);
         walls = new Line[3];
         state = new Minos[Game.boardWidth_r][Game.boardHeight_r];
+        speed = 1;
         double width = Game.boardWidth/ Game.boardWidth_r;
         double height = Game.boardHeight/ Game.boardHeight_r;
 
@@ -79,22 +75,16 @@ public class Board {
         activate();
         AnimationTimer animate = new AnimationTimer() {
             int speed_f;
+            long deltaNanos;
+            int frameCount = 0;
             @Override
             public void handle(long now) {
-
-                /**
-                 * 1 detik  = 60 frame (1 frame = 16.67 ms)
-                 * v_awal   = 1 kotak/detik
-                 * a        = 0.1 kotak/naik level
-                 * Naik level = clear 5 lines, 6 lines, 7 lines, etc.
-                 * speed 0 = mati, Shape.Shape yang sedang aktif berubah jadi inactive.
-                 */
-
-                long now_s = now/(int)Math.pow(10,9);
+                frameCount++;
+                //1 frame ~ 16.67 ms = 169
+                System.out.println(deltaNanos);
                 if (speed > 0) {
-                    //here's the gravity :)
-                    speed_f = (int) (60/speed);
-                    if (now % (speed_f) == 0) {down();}
+                    speed_f = 60000/(int)(speed*1000); //in FRAMES
+                    if (frameCount % (speed_f) == 0) {down();frameCount = 0;}
                     checkCollision();
                 } else {
                     //simpen di array dulu semua minosnya.
@@ -332,9 +322,10 @@ public class Board {
     public SimpleIntegerProperty lineClearProperty() {return lineClear;}
     public int getLineClear() {return lineClear.getValue();}
     public void updateSpeed() {
+        double acc = 0.1;
         hardDropping = false;
         int baseSpeed = 1;
-        speed = baseSpeed + (getLevel()-1)*acceleration;
+        speed = baseSpeed + (getLevel()-1)*acc;
     }
 
     public boolean isHardDropping() {return hardDropping;}
