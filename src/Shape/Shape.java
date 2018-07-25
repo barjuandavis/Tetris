@@ -1,8 +1,10 @@
+package Shape;
+
 import javafx.scene.paint.Paint;
 
 public abstract class Shape {
     /*
-        Shape consists of 4 Minos. (That's why it's called: Tetrominos.)
+        Shape.Shape consists of 4 Shape.Minos. (That's why it's called: Tetrominos.)
         There are seven different shape; L, Mirrored-L, Z, Mirrored-Z, Line, Square, and T-shape.
      */
     private Minos[] minosArray;

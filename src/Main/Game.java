@@ -1,18 +1,18 @@
+package Main;
+
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
-import javafx.scene.paint.Color;
-import javafx.scene.paint.Paint;
 import javafx.stage.Stage;
 
 import java.io.File;
 
 public class Game extends Application {
-    public static final int boardHeight_r = 20; //Game Height counted per unit/Tetramino
-    public static final int boardWidth_r = 10; // Game Width counted per unit/Tetramino
+    public static final int boardHeight_r = 20; //Main.Game Height counted per unit/Tetramino
+    public static final int boardWidth_r = 10; // Main.Game Width counted per unit/Tetramino
     public static final int boardHeight = 800;
     public static final int boardWidth = 400;
     private Scene theScene;

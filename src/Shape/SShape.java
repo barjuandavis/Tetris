@@ -1,3 +1,5 @@
+package Shape;
+
 import javafx.scene.paint.Paint;
 
 public class SShape extends Shape{

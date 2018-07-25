@@ -1,4 +1,5 @@
-import javafx.geometry.Bounds;
+import Main.Game;
+import Shape.Minos;
 import javafx.scene.shape.Rectangle;
 import java.util.ArrayList;
 

@@ -1,3 +1,6 @@
+package Shape;
+
+import Main.Game;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
 import javafx.scene.shape.Rectangle;
