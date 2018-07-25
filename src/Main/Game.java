@@ -2,6 +2,7 @@ package Main;
 
 import GUI.GameController;
 import javafx.application.Application;
+import javafx.beans.property.ObjectProperty;
 import javafx.scene.Scene;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
@@ -60,12 +61,10 @@ public class Game extends Application {
         MediaPlayer mediaPlayer = new MediaPlayer(sound);
         mediaPlayer.setAutoPlay(true);
         mediaPlayer.play();
-        mediaPlayer.setOnEndOfMedia(new Runnable() {
-            @Override
-            public void run() {
-                mediaPlayer.seek(Duration.ZERO);
-            }
-        });
+        mediaPlayer.setStartTime(Duration.ZERO);
+        mediaPlayer.setStopTime(Duration.seconds(77));
+        mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
+
     }
 
     @Override
