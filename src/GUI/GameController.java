@@ -102,7 +102,7 @@ public class GameController extends BorderPane implements Initializable {
         over.setTitle("Game Over");
         over.setHeaderText("");
         over.setGraphic(new ImageView(overImg));
-        over.setContentText("Your final result:\nScore :\t"+board.getScore()+"\nLevel :\t"+board.getLevel()+"\nLine :\t"+board.getLineClear());
+        over.setContentText("Your final result:\nScore :\t"+board.getScore()+"\nLevel :\t"+board.getLevel()+"\nLine :\t"+board.totalLineProperty().getValue());
         DialogPane dialog = over.getDialogPane();
         dialog.setStyle("-fx-text-alignment: center-right; -fx-font-size: 26px; -fx-font-weight: bold; -fx-background-color: #FFFFFF; -fx-font-family: Garamond");
     }
