@@ -75,13 +75,11 @@ public class Board {
         activate();
         AnimationTimer animate = new AnimationTimer() {
             int speed_f;
-            long deltaNanos;
             int frameCount = 0;
             @Override
             public void handle(long now) {
                 frameCount++;
                 //1 frame ~ 16.67 ms = 169
-                System.out.println(deltaNanos);
                 if (speed > 0) {
                     speed_f = 60000/(int)(speed*1000); //in FRAMES
                     if (frameCount % (speed_f) == 0) {down();frameCount = 0;}
