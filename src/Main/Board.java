@@ -1,7 +1,6 @@
 package Main;
 
-import Shape.SShape;
-import Shape.Shape;
+import Shape.*;
 import javafx.animation.AnimationTimer;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
@@ -16,7 +15,7 @@ public class Board {
     private boolean hardDropping;
 
     private boolean dead;
-    private Shape.Minos state[][];
+    private Minos state[][];
     private double speed = 0;
     private double acceleration = 0.1;
     private int lineClear = 0;
@@ -38,7 +37,7 @@ public class Board {
         dead = false;
         grids = new Line[Game.boardWidth_r-1][Game.boardHeight_r-1];
         walls = new Line[3];
-        state = new Shape.Minos[Game.boardWidth_r][Game.boardHeight_r];
+        state = new Minos[Game.boardWidth_r][Game.boardHeight_r];
         double width = Game.boardWidth/ Game.boardWidth_r;
         double height = Game.boardHeight/ Game.boardHeight_r;
         //generating gridlines
@@ -58,8 +57,8 @@ public class Board {
         }
         //generating walls
         //WARNING: WALLS ARE NOT INTENDED TO BE DRAWN. They exist only for collision purposes.
-        walls[LEFT_WALL] = new Line(-Shape.Minos.getMinosWidth(),0,-Shape.Minos.getMinosWidth(),Game.boardHeight);
-        walls[RIGHT_WALL] = new Line(Game.boardWidth+ Shape.Minos.getMinosWidth(),0,Game.boardWidth+ Shape.Minos.getMinosWidth(),Game.boardHeight);
+        walls[LEFT_WALL] = new Line(-Minos.getMinosWidth(),0,-Minos.getMinosWidth(),Game.boardHeight);
+        walls[RIGHT_WALL] = new Line(Game.boardWidth+ Minos.getMinosWidth(),0,Game.boardWidth+ Minos.getMinosWidth(),Game.boardHeight);
         walls[BOTTOM_WALL] = new Line(0,Game.boardHeight,Game.boardWidth,Game.boardHeight);
     }
 
@@ -83,19 +82,19 @@ public class Board {
     }
     private void shapeToBoard(Shape a) {shapeToBoard(a,0,0);}
     private Shape intToShape (int x){
-            if (x == 1) return new Shape.IShape();
-            else if (x == 2) return new Shape.JShape();
-            else if (x == 3) return new Shape.LShape();
-            else if (x == 4) return new Shape.OShape();
+            if (x == 1) return new IShape();
+            else if (x == 2) return new JShape();
+            else if (x == 3) return new LShape();
+            else if (x == 4) return new OShape();
             else if (x == 5) return new SShape();
-            else if (x == 6) return new Shape.TShape();
-            else return new Shape.ZShape();
+            else if (x == 6) return new TShape();
+            else return new ZShape();
         }
     private void checkCollision() {
         //TODO : check collisions only LEFT, RIGHT, AND DOWN. KEEP IN MIND THAT NOT EVERY COLLISIONS CAN STOP THE SHAPE.
         //check collision to walls
         //check collision to other minos
-        for (Shape.Minos minos : activeShape.getMinosArray()) {
+        for (Minos minos : activeShape.getMinosArray()) {
             if (minos.getBoundsInParent().intersects(walls[LEFT_WALL].getBoundsInParent())) {activeShape.moveRight(); }
             if (minos.getBoundsInParent().intersects(walls[RIGHT_WALL].getBoundsInParent())) {activeShape.moveLeft();}
             if (minos.getBoundsInParent().intersects(walls[BOTTOM_WALL].getBoundsInParent())) {
@@ -105,7 +104,7 @@ public class Board {
         checkMinosCollisions();
 
     }
-    private void checkMinosCollisions(Shape.Minos a, Shape.Minos b) {
+    private void checkMinosCollisions(Minos a, Minos b) {
         int x = a.getRelativeX(), y = a.getRelativeY();
         int xw = b.getRelativeX(), yw = b.getRelativeY();
         double d = Math.sqrt((y-yw)*(y-yw)+(x-xw)*(x-xw));
@@ -114,10 +113,10 @@ public class Board {
         }
     }
     private void checkMinosCollisions() {
-        for (Shape.Minos[] rows : state) {
-            for (Shape.Minos which : rows) {
+        for (Minos[] rows : state) {
+            for (Minos which : rows) {
                 if (which == null) continue;
-                Shape.Minos[] arr = activeShape.getMinosArray();
+                Minos[] arr = activeShape.getMinosArray();
                 for (int i = 0; i<arr.length; i++) {
                     int x = arr[i].getRelativeX(), y = arr[i].getRelativeY();
                     int xw = which.getRelativeX(), yw = which.getRelativeY();
@@ -179,7 +178,7 @@ public class Board {
     }
     private void updateLastPos(int x, int y, int i) {lastPos[i][0] = x; lastPos[i][1] = y;}
     private void updateLastPos() {
-        Shape.Minos[] arr = activeShape.getMinosArray();
+        Minos[] arr = activeShape.getMinosArray();
         for (int i = 0; i<arr.length; i++) {
             updateLastPos(arr[i].getRelativeX(),arr[i].getRelativeY(),i);
         }
@@ -255,7 +254,7 @@ public class Board {
                     checkCollision();
                 } else {
                     //simpen di array dulu semua minosnya.
-                    for (Shape.Minos m : activeShape.getMinosArray()) {
+                    for (Minos m : activeShape.getMinosArray()) {
                         if (m.getRelativeY() == 0) {
                             this.stop();
                             dead = true;

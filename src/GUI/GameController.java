@@ -1,5 +1,6 @@
-package Main;
+package GUI;
 
+import Main.Board;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -29,7 +30,7 @@ public class GameController extends StackPane implements Initializable {
     private Board board;
 
     public GameController () {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("GUI/game.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("game.fxml"));
         loader.setRoot(this);
         loader.setController(this);
         try {
