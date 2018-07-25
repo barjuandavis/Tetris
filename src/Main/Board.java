@@ -24,6 +24,7 @@ public class Board {
     private double acceleration = 0.1;
 
 
+
     private SimpleIntegerProperty lineClear;
     private SimpleIntegerProperty level;
     private SimpleIntegerProperty score;
@@ -32,6 +33,8 @@ public class Board {
     private Shape activeShape, holdedShape, nextShape;
     private final int BOTTOM_WALL = 0, LEFT_WALL = 1, RIGHT_WALL = 2;
     private int lastPos[][];
+    private ArrayList<Shape> randomizer;
+
 
     //constructor
     public Board() {
@@ -109,7 +112,6 @@ public class Board {
                         increaseLevel();
                         randomizeShape();
                         activate();
-                        printPlayerStats();
                     }
                 }
             }
@@ -122,9 +124,16 @@ public class Board {
         /*
         a function to randomize a shape and put it to nextShape.
         */
-        Random r = new Random();
-        int x = r.nextInt(7) + 1;
-        nextShape = intToShape(x);
+        if (randomizer == null || randomizer.size() == 0) {
+            randomizer = new ArrayList<Shape>();
+            for (int i = 1; i<=7; i++) {
+                randomizer.add(intToShape(i));
+            }
+        }
+            Random r = new Random();
+            int x = r.nextInt(randomizer.size());
+            nextShape = randomizer.get(x);
+            randomizer.remove(x);
 
     }
     private void shapeToBoard(Shape a, int x, int y) {
@@ -146,7 +155,6 @@ public class Board {
             else return new ZShape();
         }
     private void checkCollision() {
-        //TODO : check collisions only LEFT, RIGHT, AND DOWN. KEEP IN MIND THAT NOT EVERY COLLISIONS CAN STOP THE SHAPE.
         //check collision to walls
         //check collision to other minos
         for (Minos minos : activeShape.getMinosArray()) {
