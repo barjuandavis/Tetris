@@ -1,6 +1,8 @@
 package GUI;
 
 import Main.Board;
+import javafx.beans.InvalidationListener;
+import javafx.beans.Observable;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -47,11 +49,11 @@ public class GameController extends StackPane implements Initializable {
         score.setText(""+board.getScore());
         level.setText(""+board.getLevel());
         line.setText(""+board.getLineClear());
-
         borderPane.setCenter(board.getPane());
-
+        score.textProperty().bind(board.scoreProperty().asString());
+        level.textProperty().bind(board.levelProperty().asString());
+        line.textProperty().bind(board.lineClearProperty().asString());
         board.startBoard();
-
     }
 
     public Board getBoard() {

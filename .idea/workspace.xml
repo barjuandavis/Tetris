@@ -3,9 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="aabc729e-2f7c-4d25-a503-76b86fa4f601" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GUI/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI/GameController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/Board.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Shape/Minos.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Shape/Minos.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -20,30 +19,12 @@
       <file leaf-file-name="Game.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Main/Game.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="476">
-              <caret line="30" column="42" selection-start-line="30" selection-start-column="42" selection-end-line="30" selection-end-column="42" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Board.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Main/Board.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1141">
-              <caret line="256" column="55" selection-start-line="256" selection-start-column="55" selection-end-line="256" selection-end-column="55" />
+            <state relative-caret-position="504">
+              <caret line="30" selection-start-line="30" selection-end-line="30" />
               <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#5723#6925#0" />
+                <element signature="e#841#842#0" expanded="true" />
+                <element signature="e#869#870#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Minos.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Shape/Minos.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="9" lean-forward="true" selection-start-column="9" selection-end-column="9" />
             </state>
           </provider>
         </entry>
@@ -51,16 +32,44 @@
       <file leaf-file-name="GameController.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/GUI/GameController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1120">
-              <caret line="49" selection-start-line="49" selection-end-line="49" />
+            <state relative-caret-position="513">
+              <caret line="55" column="27" selection-start-line="55" selection-start-column="27" selection-end-line="55" selection-end-column="27" />
+              <folding>
+                <element signature="method#GameController#0;class#GameController#0" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="game.fxml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/GUI/game.fxml">
-          <provider editor-type-id="JavaFX-Scene-Builder" />
-          <provider selected="true" editor-type-id="text-editor" />
+      <file leaf-file-name="Board.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Main/Board.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="496">
+              <caret line="110" column="21" selection-start-line="110" selection-start-column="21" selection-end-line="110" selection-end-column="21" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#2315#2575#0" />
+                <element signature="e#2580#2902#0" />
+                <element signature="e#2969#3345#0" />
+                <element signature="e#3350#4061#0" />
+                <element signature="e#4361#5421#0" />
+                <element signature="e#5426#5825#0" />
+                <element signature="e#7129#7463#0" />
+                <element signature="e#7437#7579#0" />
+                <element signature="e#9283#9610#0" />
+                <element signature="e#7613#7987#0" />
+                <element signature="e#9809#10011#0" />
+                <element signature="e#8190#8540#0" />
+                <element signature="e#8545#8745#0" />
+                <element signature="e#8750#8885#0" />
+                <element signature="e#10950#11054#0" />
+                <element signature="e#11215#11216#0" expanded="true" />
+                <element signature="e#11242#11243#0" expanded="true" />
+                <element signature="e#11129#11248#0" />
+                <element signature="e#11387#11529#0" />
+              </folding>
+            </state>
+          </provider>
         </entry>
       </file>
     </leaf>
@@ -86,6 +95,10 @@
       <find>updateLas</find>
       <find>startBoar</find>
       <find>activeShape.getMinosArray()</find>
+      <find>grids</find>
+      <find>setScore</find>
+      <find>increase</find>
+      <find>isDead</find>
     </findStrings>
     <replaceStrings>
       <replace>which</replace>
@@ -116,10 +129,10 @@
         <option value="$PROJECT_DIR$/src/Game.java" />
         <option value="$PROJECT_DIR$/src/Board.java" />
         <option value="$PROJECT_DIR$/src/Main/GameController.java" />
-        <option value="$PROJECT_DIR$/src/GUI/GameController.java" />
         <option value="$PROJECT_DIR$/src/Shape/Minos.java" />
-        <option value="$PROJECT_DIR$/src/Main/Board.java" />
         <option value="$PROJECT_DIR$/src/Main/Game.java" />
+        <option value="$PROJECT_DIR$/src/Main/Board.java" />
+        <option value="$PROJECT_DIR$/src/GUI/GameController.java" />
       </list>
     </option>
   </component>
@@ -288,7 +301,7 @@
       <workItem from="1532320413103" duration="17552000" />
       <workItem from="1532404882762" duration="3113000" />
       <workItem from="1532489527536" duration="8735000" />
-      <workItem from="1532502921652" duration="3207000" />
+      <workItem from="1532502921652" duration="8513000" />
     </task>
     <task id="LOCAL-00001" summary="Update 11 Juli 2018 #1">
       <created>1531788621138</created>
@@ -367,11 +380,25 @@
       <option name="project" value="LOCAL" />
       <updated>1532504262909</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Update 25 Juli 2018 #4">
+      <created>1532506155414</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1532506155414</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Update 25 Juli 2018 #5">
+      <created>1532506832948</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1532506832948</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="107860000" />
+    <option name="totallyTimeSpent" value="113166000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -396,7 +423,7 @@
       <window_info anchor="right" id="Maven Projects" order="3" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.32914287" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49892703" visible="true" weight="0.11657143" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49892703" visible="true" weight="0.059428573" />
       <window_info anchor="bottom" id="Terminal" order="7" weight="0.3283237" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="2" />
@@ -463,87 +490,16 @@
     <MESSAGE value="Update 23 Juli 2018" />
     <MESSAGE value="Update 25 Juli 2018&#10;UDAH JADI YEY (Kurang hold doang)" />
     <MESSAGE value="Update 25 Juli 2018 #3" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update 25 Juli 2018 #3" />
+    <MESSAGE value="Update 25 Juli 2018 #4" />
+    <MESSAGE value="Update 25 Juli 2018 #5" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update 25 Juli 2018 #5" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="30" />
+      <option name="time" value="31" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/ZShape.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="56">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Board.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1120">
-          <caret line="65" column="16" lean-forward="true" selection-start-line="65" selection-start-column="16" selection-end-line="65" selection-end-column="16" />
-          <folding>
-            <element signature="e#754#2276#0" />
-            <element signature="e#2282#2542#0" />
-            <element signature="e#2547#2869#0" />
-            <element signature="e#2936#3312#0" />
-            <element signature="e#3317#4028#0" />
-            <element signature="e#4033#4323#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Game.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="532">
-          <caret line="19" column="106" selection-start-line="19" selection-start-column="106" selection-end-line="19" selection-end-column="106" />
-          <folding>
-            <element signature="e#762#763#0" expanded="true" />
-            <element signature="e#790#791#0" expanded="true" />
-            <element signature="e#977#1753#0" />
-            <element signature="method#start#0;class#Game#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Board.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="224">
-          <caret line="8" column="20" lean-forward="true" selection-start-line="8" selection-start-column="20" selection-end-line="8" selection-end-column="20" />
-          <folding>
-            <element signature="e#754#2276#0" />
-            <element signature="e#2282#2542#0" />
-            <element signature="e#2547#2869#0" />
-            <element signature="e#2936#3312#0" />
-            <element signature="e#3317#4028#0" />
-            <element signature="e#4033#4323#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ShapeType.java" />
-    <entry file="file://$PROJECT_DIR$/src/Shape.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="868">
-          <caret line="37" column="72" selection-start-line="37" selection-start-column="72" selection-end-line="37" selection-end-column="72" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Board.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="532">
-          <caret line="19" column="53" selection-start-line="19" selection-start-column="53" selection-end-line="19" selection-end-column="53" />
-          <folding>
-            <element signature="e#754#2276#0" />
-            <element signature="e#2282#2542#0" />
-            <element signature="e#2547#2869#0" />
-            <element signature="e#2936#3312#0" />
-            <element signature="e#3317#4028#0" />
-            <element signature="e#4033#4323#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/IShape.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="280">
@@ -860,21 +816,90 @@
       <provider editor-type-id="JavaFX-Scene-Builder" />
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Main/Game.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="476">
-          <caret line="30" column="42" selection-start-line="30" selection-start-column="42" selection-end-line="30" selection-end-column="42" />
+    <entry file="uml://JAVA/Main.Game">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>JAVA</ID>
+          <OriginalElement>Main.Game</OriginalElement>
+          <nodes>
+            <node x="20.0" y="195.0">javafx.application.Application</node>
+            <node x="196.0" y="699.0">Main.Game</node>
+            <node x="106.0" y="0.0">javafx.application.Application.Parameters</node>
+          </nodes>
+          <notes />
+          <edges>
+            <edge source="javafx.application.Application.Parameters" target="javafx.application.Application">
+              <point x="62.0" y="72.5" />
+              <point x="292.0" y="170.0" />
+              <point x="335.0" y="170.0" />
+              <point x="105.0" y="-222.0" />
+            </edge>
+            <edge source="javafx.application.Application" target="javafx.application.Application.Parameters">
+              <point x="-105.0" y="-222.0" />
+              <point x="125.0" y="170.0" />
+              <point x="168.0" y="170.0" />
+              <point x="-62.0" y="72.5" />
+            </edge>
+            <edge source="javafx.application.Application" target="javafx.application.Application">
+              <point x="-140.0" y="222.0" />
+              <point x="90.0" y="659.0" />
+              <point x="0.0" y="659.0" />
+              <point x="0.0" y="417.0" />
+              <point x="-210.0" y="-0.0" />
+            </edge>
+            <edge source="Main.Game" target="javafx.application.Application">
+              <point x="-52.0" y="-180.5" />
+              <point x="248.0" y="679.0" />
+              <point x="230.0" y="679.0" />
+              <point x="0.0" y="222.0" />
+            </edge>
+          </edges>
+          <settings layout="Hierarchic Group" zoom="0.8" x="-324.88095238095275" y="674.0" />
+          <SelectedNodes>
+            <node>Main.Game</node>
+          </SelectedNodes>
+          <Categories>
+            <Category>Fields</Category>
+            <Category>Constructors</Category>
+            <Category>Methods</Category>
+            <Category>Properties</Category>
+            <Category>Inner Classes</Category>
+          </Categories>
+          <SCOPE>All</SCOPE>
+          <VISIBILITY>private</VISIBILITY>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Main/Board.java">
+    <entry file="uml://JAVA/Shape.Shape">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>JAVA</ID>
+          <OriginalElement>Shape.Shape</OriginalElement>
+          <nodes>
+            <node x="0.0" y="0.0">Shape.Shape</node>
+          </nodes>
+          <notes />
+          <edges />
+          <settings layout="Hierarchic Group" zoom="1.1" x="-504.5909090909091" y="-57.81818181818184" />
+          <SelectedNodes>
+            <node>Shape.Shape</node>
+          </SelectedNodes>
+          <Categories>
+            <Category>Fields</Category>
+            <Category>Constructors</Category>
+            <Category>Methods</Category>
+            <Category>Properties</Category>
+            <Category>Inner Classes</Category>
+          </Categories>
+          <SCOPE>All</SCOPE>
+          <VISIBILITY>private</VISIBILITY>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Shape/Shape.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1141">
-          <caret line="256" column="55" selection-start-line="256" selection-start-column="55" selection-end-line="256" selection-end-column="55" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#5723#6925#0" />
-          </folding>
+        <state relative-caret-position="112">
+          <caret line="4" column="22" selection-start-line="4" selection-start-column="22" selection-end-line="4" selection-end-column="22" />
         </state>
       </provider>
     </entry>
@@ -885,10 +910,196 @@
         </state>
       </provider>
     </entry>
+    <entry file="uml://JavaScript-modules-diagram/E:/KULIAH/Semester 6/Matematika &amp; Fisika untuk Game/kelas/Tetris/src/GUI;E:/KULIAH/Semester 6/Matematika &amp; Fisika untuk Game/kelas/Tetris/src/GUI/assets;E:/KULIAH/Semester 6/Matematika &amp; Fisika untuk Game/kelas/Tetris/src/Main;E:/KULIAH/Semester 6/Matematika &amp; Fisika untuk Game/kelas/Tetris/src/Shape;">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>JavaScript-modules-diagram</ID>
+          <OriginalElement>$PROJECT_DIR$/src/GUI;E:/KULIAH/Semester 6/Matematika &amp; Fisika untuk Game/kelas/Tetris/src/GUI/assets;E:/KULIAH/Semester 6/Matematika &amp; Fisika untuk Game/kelas/Tetris/src/Main;E:/KULIAH/Semester 6/Matematika &amp; Fisika untuk Game/kelas/Tetris/src/Shape;</OriginalElement>
+          <nodes />
+          <notes />
+          <edges />
+          <settings layout="Hierarchic Group" zoom="1.0" x="240.0" y="240.0" />
+          <SelectedNodes />
+          <Categories>
+            <Category>All</Category>
+          </Categories>
+          <VISIBILITY>Details</VISIBILITY>
+        </state>
+      </provider>
+    </entry>
+    <entry file="uml://JAVA/Shape.IShape">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>JAVA</ID>
+          <OriginalElement>Shape.IShape</OriginalElement>
+          <nodes>
+            <node x="0.0" y="96.0">Shape.JShape</node>
+            <node x="776.0" y="96.0">Shape.SShape</node>
+            <node x="127.0" y="96.0">Shape.ZShape</node>
+            <node x="0.0" y="177.0">javafx.scene.shape.Rectangle</node>
+            <node x="521.0" y="96.0">Shape.IShape</node>
+            <node x="391.0" y="96.0">Shape.TShape</node>
+            <node x="647.0" y="96.0">Shape.LShape</node>
+            <node x="395.0" y="0.0">Shape.Shape</node>
+            <node x="258.0" y="96.0">Shape.OShape</node>
+            <node x="13.0" y="263.0">Shape.Minos</node>
+          </nodes>
+          <notes />
+          <edges>
+            <edge source="Shape.SShape" target="Shape.Shape">
+              <point x="0.0" y="-18.0" />
+              <point x="831.0" y="56.0" />
+              <point x="489.7142857142857" y="56.0" />
+              <point x="43.71428571428572" y="18.0" />
+            </edge>
+            <edge source="Shape.TShape" target="Shape.Shape">
+              <point x="0.0" y="-18.0" />
+              <point x="0.0" y="18.0" />
+            </edge>
+            <edge source="Shape.ZShape" target="Shape.Shape">
+              <point x="0.0" y="-18.0" />
+              <point x="182.5" y="66.0" />
+              <point x="416.8571428571429" y="66.0" />
+              <point x="-29.14285714285711" y="18.0" />
+            </edge>
+            <edge source="Shape.OShape" target="Shape.Shape">
+              <point x="0.0" y="-18.0" />
+              <point x="314.5" y="76.0" />
+              <point x="431.42857142857144" y="76.0" />
+              <point x="-14.571428571428555" y="18.0" />
+            </edge>
+            <edge source="Shape.JShape" target="Shape.Shape">
+              <point x="0.0" y="-18.0" />
+              <point x="53.5" y="56.0" />
+              <point x="402.2857142857143" y="56.0" />
+              <point x="-43.71428571428572" y="18.0" />
+            </edge>
+            <edge source="Shape.IShape" target="Shape.Shape">
+              <point x="0.0" y="-18.0" />
+              <point x="574.0" y="76.0" />
+              <point x="460.57142857142856" y="76.0" />
+              <point x="14.571428571428555" y="18.0" />
+            </edge>
+            <edge source="Shape.Minos" target="javafx.scene.shape.Rectangle">
+              <point x="0.0" y="-18.0" />
+              <point x="0.0" y="18.0" />
+            </edge>
+            <edge source="Shape.LShape" target="Shape.Shape">
+              <point x="0.0" y="-18.0" />
+              <point x="701.5" y="66.0" />
+              <point x="475.14285714285717" y="66.0" />
+              <point x="29.142857142857167" y="18.0" />
+            </edge>
+          </edges>
+          <settings layout="Hierarchic Group" zoom="1.0" x="-130.5" y="164.0" />
+          <SelectedNodes>
+            <node>Shape.IShape</node>
+          </SelectedNodes>
+          <Categories />
+          <SCOPE>All</SCOPE>
+          <VISIBILITY>private</VISIBILITY>
+        </state>
+      </provider>
+    </entry>
+    <entry file="uml://JavaScript-modules-diagram/E:/KULIAH/Semester 6/Matematika &amp; Fisika untuk Game/kelas/Tetris/src/Main;E:/KULIAH/Semester 6/Matematika &amp; Fisika untuk Game/kelas/Tetris/src/Shape;">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>JavaScript-modules-diagram</ID>
+          <OriginalElement>$PROJECT_DIR$/src/Main;E:/KULIAH/Semester 6/Matematika &amp; Fisika untuk Game/kelas/Tetris/src/Shape;</OriginalElement>
+          <nodes />
+          <notes />
+          <edges />
+          <settings layout="Hierarchic Group" zoom="1.0" x="240.0" y="240.0" />
+          <SelectedNodes />
+          <Categories>
+            <Category>All</Category>
+          </Categories>
+          <VISIBILITY>Details</VISIBILITY>
+        </state>
+      </provider>
+    </entry>
+    <entry file="uml://JAVA/Main.Board">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>JAVA</ID>
+          <OriginalElement>Main.Board</OriginalElement>
+          <nodes>
+            <node x="" y="">Shape.JShape</node>
+            <node x="" y="">Shape.SShape</node>
+            <node x="" y="">Shape.Shape</node>
+            <node x="" y="">Shape.OShape</node>
+            <node x="" y="">Main.Board</node>
+            <node x="" y="">Shape.Minos</node>
+            <node x="" y="">Shape.ZShape</node>
+            <node x="" y="">Shape.IShape</node>
+            <node x="" y="">Shape.TShape</node>
+            <node x="" y="">Shape.LShape</node>
+            <node x="" y="">Main.Game</node>
+            <node x="" y="">GUI.GameController</node>
+          </nodes>
+          <notes />
+          <edges />
+          <settings layout="Hierarchic Group" zoom="0.8" x="885.875" y="1444.25" />
+          <SelectedNodes />
+          <Categories>
+            <Category>Inner Classes</Category>
+            <Category>Properties</Category>
+            <Category>Methods</Category>
+            <Category>Constructors</Category>
+            <Category>Fields</Category>
+          </Categories>
+          <SCOPE>All</SCOPE>
+          <VISIBILITY>private</VISIBILITY>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Main/Game.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="504">
+          <caret line="30" selection-start-line="30" selection-end-line="30" />
+          <folding>
+            <element signature="e#841#842#0" expanded="true" />
+            <element signature="e#869#870#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Main/Board.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="496">
+          <caret line="110" column="21" selection-start-line="110" selection-start-column="21" selection-end-line="110" selection-end-column="21" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2315#2575#0" />
+            <element signature="e#2580#2902#0" />
+            <element signature="e#2969#3345#0" />
+            <element signature="e#3350#4061#0" />
+            <element signature="e#4361#5421#0" />
+            <element signature="e#5426#5825#0" />
+            <element signature="e#7129#7463#0" />
+            <element signature="e#7437#7579#0" />
+            <element signature="e#9283#9610#0" />
+            <element signature="e#7613#7987#0" />
+            <element signature="e#9809#10011#0" />
+            <element signature="e#8190#8540#0" />
+            <element signature="e#8545#8745#0" />
+            <element signature="e#8750#8885#0" />
+            <element signature="e#10950#11054#0" />
+            <element signature="e#11215#11216#0" expanded="true" />
+            <element signature="e#11242#11243#0" expanded="true" />
+            <element signature="e#11129#11248#0" />
+            <element signature="e#11387#11529#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/GUI/GameController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1120">
-          <caret line="49" selection-start-line="49" selection-end-line="49" />
+        <state relative-caret-position="513">
+          <caret line="55" column="27" selection-start-line="55" selection-start-column="27" selection-end-line="55" selection-end-column="27" />
+          <folding>
+            <element signature="method#GameController#0;class#GameController#0" />
+          </folding>
         </state>
       </provider>
     </entry>
