@@ -22,6 +22,7 @@ public class Board {
     private SimpleIntegerProperty lineClear;
     private SimpleIntegerProperty level;
     private SimpleIntegerProperty score;
+    private SimpleIntegerProperty totalLine;
     private Line walls[];
     private Pane root;
     private Shape activeShape, holdedShape, nextShape;
@@ -40,6 +41,7 @@ public class Board {
         lineClear = new SimpleIntegerProperty(0);
         level = new SimpleIntegerProperty(1);
         score = new SimpleIntegerProperty(0);
+        totalLine = new SimpleIntegerProperty(0);
         walls = new Line[3];
         state = new Minos[Game.boardWidth_r][Game.boardHeight_r];
         speed = 1;
@@ -226,7 +228,10 @@ public class Board {
         }
         //System.out.println();
     }
-    private void increaseLineClear() {lineClear.setValue(lineClear.getValue()+1);}
+    private void increaseLineClear() {
+        lineClear.setValue(lineClear.getValue()+1);
+        totalLine.setValue(totalLine.get()+1);
+    }
     private void increaseLevel() {
         if (getLineClear() >= getLineClearObjective()) {
             setLevel(getLevel()+1);
@@ -317,7 +322,7 @@ public class Board {
     public int getLevel() {return level.getValue();}
     public SimpleIntegerProperty scoreProperty() {return score;}
     public int getScore() {return score.getValue();}
-    public SimpleIntegerProperty lineClearProperty() {return lineClear;}
+    public SimpleIntegerProperty totalLineProperty() {return totalLine;}
     public int getLineClear() {return lineClear.getValue();}
     public void updateSpeed() {
         double acc = 0.1;
@@ -331,18 +336,10 @@ public class Board {
 
     public SimpleBooleanProperty deadProperty() {return dead;}
 
-
-
-
     //SETTERS
     public void setLineClear(int lineClear) {this.lineClear.set(lineClear);}
     public void setLevel(int level) {this.level.set(level);}
     public void setDead(boolean dead) {this.dead.set(dead);}
-
-
-
-
-
 }
 
 

@@ -71,7 +71,7 @@ public class GameController extends BorderPane implements Initializable {
 
         score.textProperty().bind(board.scoreProperty().asString());
         level.textProperty().bind(board.levelProperty().asString());
-        line.textProperty().bind(board.lineClearProperty().asString());
+        line.textProperty().bind(board.totalLineProperty().asString());
 
         board.startBoard();
 
