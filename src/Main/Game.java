@@ -29,7 +29,7 @@ public class Game extends Application {
     public void initGame() {
 
         gc = new GameController();
-        theScene = new Scene(gc, 800, 600);
+        theScene = new Scene(gc, 1000, 600);
         board = gc.getBoard();
         theScene.addEventHandler(KeyEvent.KEY_PRESSED, (k) -> {
             if (!board.isDead()) {
