@@ -8,7 +8,9 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 
+import java.awt.*;
 import java.io.File;
 
 public class Game extends Application {
@@ -24,8 +26,12 @@ public class Game extends Application {
     }
 
     public void initGame() {
+        Dimension screenSize = java.awt.Toolkit.getDefaultToolkit().getScreenSize();
+        double width = screenSize.getWidth();
+        double height = screenSize.getHeight();
+
         gc = new GameController();
-        theScene = new Scene(gc);
+        theScene = new Scene(gc, width, height);
         board = gc.getBoard();
         theScene.addEventHandler(KeyEvent.KEY_PRESSED, (k) -> {
             if (!board.isDead()) {
@@ -52,11 +58,17 @@ public class Game extends Application {
     }
 
     public void startMusic() {
-        String musicFile = "src/Tetris.mp3";
+        String musicFile = "src/GUI/assets/Tetris.mp3";
         Media sound = new Media(new File(musicFile).toURI().toString());
         MediaPlayer mediaPlayer = new MediaPlayer(sound);
         mediaPlayer.setAutoPlay(true);
         mediaPlayer.play();
+        mediaPlayer.setOnEndOfMedia(new Runnable() {
+            @Override
+            public void run() {
+                mediaPlayer.seek(Duration.ZERO);
+            }
+        });
     }
 
     @Override
@@ -64,7 +76,7 @@ public class Game extends Application {
         initGame();
         mainThread();
         primaryStage.setScene(theScene);
-        primaryStage.setFullScreen(false);
+        primaryStage.setFullScreen(true);
         primaryStage.setFullScreenExitHint("");
         primaryStage.show();
     }
