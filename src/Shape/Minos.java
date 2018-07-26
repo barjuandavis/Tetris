@@ -1,3 +1,12 @@
+/**
+ @project Tetris
+
+ @author Barjuan Davis Penthalion    00000023971     BP3971@student.uph.edu
+ @author Nadya Felim Bachtiar        00000019602     NB9602@student.uph.edu
+
+ Informatics 2016
+ Universitas Pelita Harapan
+ */
 package Shape;
 
 import Main.Game;
