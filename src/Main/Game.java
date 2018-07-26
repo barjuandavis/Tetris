@@ -65,11 +65,6 @@ public class Game extends Application {
 
     }
 
-    public void mainThread() {
-        //board.startBoard();
-        startMusic();
-    }
-
     public void startMusic() {
         musicFile = "src/GUI/assets/Tetris.mp3";
         sound = new Media(new File(musicFile).toURI().toString());
@@ -92,7 +87,7 @@ public class Game extends Application {
     @Override
     public void start(Stage primaryStage) {
         initGame();
-        mainThread();
+        startMusic();
         primaryStage.setScene(theScene);
         primaryStage.setResizable(false);
         primaryStage.setFullScreenExitHint("");

@@ -22,7 +22,6 @@ import java.util.Random;
 
 public class Board {
     private boolean retrieved;
-    private boolean holding;
     private boolean hardDropping;
 
     private SimpleBooleanProperty dead;
@@ -34,7 +33,7 @@ public class Board {
     private SimpleIntegerProperty totalLine;
     private Line walls[];
     private Pane root;
-    private Shape activeShape, holdedShape, nextShape;
+    private Shape activeShape, nextShape;
     private final int BOTTOM_WALL = 0, LEFT_WALL = 1, RIGHT_WALL = 2;
     private int lastPos[][];
     private ArrayList<Shape> randomizer;
@@ -44,7 +43,6 @@ public class Board {
     //constructor
     public Board() {
         root = new Pane();
-        holding = false;
         hardDropping = false;
         dead = new SimpleBooleanProperty(false);
         lineClear = new SimpleIntegerProperty(0);
@@ -278,34 +276,21 @@ public class Board {
         System.out.println("Level : " + getLevel());
         System.out.println("--------------------------------------");
         System.out.println();
-}
 
-     // PUBLIC UTILITY FUNCTIONS (Mostly user inputs)
-    public void activate() {
+}
+    private void activate() {
         /*
         A function to retrieve a shape from nextShape
         and to give initial speed to activeShape.
          */
-            lastPos = new int[4][2];
-            activeShape = nextShape;
-            shapeToBoard(activeShape);
-            updateSpeed();
+        lastPos = new int[4][2];
+        activeShape = nextShape;
+        shapeToBoard(activeShape);
+        updateSpeed();
     }
-    public void hold() {
-       if (!holding)
-        if (holdedShape == null) {
-            holdedShape = activeShape;
-            holding = true;
-        } else {
-            retrieve();
-        }
-    }
-    public void retrieve() {
-        if (!retrieved) {
-            activeShape = holdedShape;
-            retrieved = true;
-        }
-    }
+
+     // PUBLIC UTILITY FUNCTIONS (Mostly user inputs)
+
 
 
     public void left() { updateLastPos();activeShape.moveLeft();}
